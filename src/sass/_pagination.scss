@@ -40,8 +40,8 @@
   line-height: 1;
   text-decoration: none;
   vertical-align: middle;
-  border: 1px solid #ddd;
-  border-width: 1px 0;
+  //   border: 1px solid #ddd;
+  //   border-width: 1px 0;
 }
 
 .tui-pagination .tui-page-btn:hover {
@@ -52,7 +52,7 @@
 .tui-pagination strong {
   color: #fff;
   background: #4b96e6;
-  border-color: #4b96e6;
+  //   border-color: #4b96e6;
   cursor: default;
 }
 
@@ -67,37 +67,44 @@
 
 .tui-pagination .tui-first-child,
 .tui-pagination .tui-prev-is-ellip {
-  border-left: 1px solid #ddd;
+  //   border-left: 1px solid #ddd;
 }
 
 .tui-pagination .tui-last-child,
 .tui-pagination .tui-next-is-ellip {
-  border-right: 1px solid #ddd;
+  //   border-right: 1px solid #ddd;
 }
 
 .tui-pagination .tui-first-child.tui-is-selected {
-  border-left: 1px solid #4b96e6;
+  //   border-left: 1px solid #4b96e6;
 }
 
 .tui-pagination .tui-last-child.tui-is-selected {
-  border-right: 1px solid #4b96e6;
+  //   border-right: 1px solid #4b96e6;
 }
 
-.tui-pagination .tui-first,
+// .tui-pagination .tui-first,
 .tui-pagination .tui-prev,
-.tui-pagination .tui-next,
-.tui-pagination .tui-last,
-.tui-pagination .tui-prev-is-ellip,
-.tui-pagination .tui-next-is-ellip {
+.tui-pagination .tui-next 
+  // .tui-pagination .tui-last,
+  // .tui-pagination .tui-prev-is-ellip,
+  // .tui-pagination .tui-next-is-ellip
+{
+  width: 40px;
+  height: 40px;
+
+  background: #f7f7f7;
+  border-radius: 5px;
+
   overflow: hidden;
-  height: 26px;
   padding: 0;
   font-size: 0;
-  line-height: 26px;
+  line-height: 40px;
   white-space: nowrap;
   font-weight: normal;
-  border: 1px solid #ddd;
+  //   border: 1px solid #ddd;
 }
+
 .tui-pagination .tui-first {
   display: none;
 }
