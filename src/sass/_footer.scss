@@ -1,0 +1,64 @@
+.footer{
+    background-color: #F7F7F7;
+}
+.footer-container{
+    height: auto;
+    padding-top: 28.7px;
+    padding-bottom: 29.7px;
+    @media screen and (min-width: 768px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 28px;
+        padding-bottom: 30px;
+
+    }
+}
+.footer-text-wrapper {
+    @media screen and (min-width: 320px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 9.9px;
+    }
+    @media screen and (min-width: 768px) {
+        // display: inline;
+        margin-bottom: 0px;
+        // text-align: center;
+    }
+}
+.footer-text{
+    color: #545454;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+
+    @media screen and (min-width: 320px) {
+        &:first-child{
+            padding-right: 4px;
+        }
+    }
+    @media screen and (min-width: 768px) {
+        &:last-child{
+            padding-left: 4px;
+        }
+    }
+}
+
+.footer-heart-span {
+    color: #FF6B08;
+    font-size: 16px;
+}
+.footer-team-link{
+    text-decoration: underline;
+    color: #545454;
+    &:hover,
+    &:focus{
+        text-shadow: #6b6f72 1px 0 10px;
+        color: #FF6B08;
+    }
+}
