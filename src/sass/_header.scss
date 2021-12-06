@@ -89,6 +89,34 @@
     transform: rotate(0deg);
   }
 }
+.lang{
+  position: absolute;
+  right: 30px;
+  bottom: 0;
+}
+.lang-site__link,
+.lang-site__link--other {
+  // font-family: var(--second-font);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.lang-site__link--other {
+  visibility: hidden;
+}
+.lang-site:hover .lang-site__link--other {
+  visibility: visible;
+  
+}
+
+ .lang-site__item:hover .link{
+  color: #FF6B08;
+}
+
 .header {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(../images/header/header-mob-1.jpg);
@@ -100,6 +128,7 @@
   padding-bottom: 97px;
 //   width: 320px;
   margin: 0 auto;
+  position: relative;
 }
 // dpr2 и 280px+
 @media (min-device-pixel-ratio: 2) and (min-width: 280px),
