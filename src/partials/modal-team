@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Модалка -->
+<div class="team__container">
+    <div class="title-wrapper">
+    
+        <a class="ref__readme" href="https://github.com/AndreiPenskiy/filmoteka-project" target="_blank"
+             aria-label="Our Github">
+            <img class="goitLogo" src="https://goit.ua/wp-content/themes/1/images/Layer.png" alt="GoIT"
+                title="Our Github">
+        </a>
+        <h2 lang="en" class="team__title">TEAM<span class='under'>__</span>13</h2>
+</div>
+
+<div class="team__content">
+    <ul class="team__list">
+<li class="team__item">
+<div>
+    <img class="team" src="./person.jpg" alt="team-member">
+    <p class="team_name">Andrey</p>
+    <p class="position">Teamlid</p>
+</div>
+</li>
+<li class="team__item">
+<div>
+    <img class="team" src="./person.jpg" alt="team-member">
+    <p class="team_name">Galyna</p>
+    <p class="position">Scrum master</p>
+</div>
+</li>
+<li class="team__item">
+    <div>
+        <img class="team" src="./person.jpg" alt="team-member">
+        <p class="team_name">Vitaliy</p>
+        <p class="position">Developer</p>
+    </div>
+</li>
+<li class="team__item">
+    <div>
+        <img class="team" src="./person.jpg" alt="team-member">
+        <p class="team_name">Anastasiia</p>
+        <p class="position">Developer</p>
+    </div>
+</li>
+<li class="team__item">
+    <div>
+        <img class="team" src="./person.jpg" alt="team-member">
+        <p class="team_name">Anatol</p>
+        <p class="position">Developer</p>
+    </div>
+</li>
+<li class="team__item">
+    <div>
+        <img class="team" src="./person.jpg" alt="team-member">
+        <p class="team_name">Denis</p>
+        <p class="position">Developer</p>
+    </div>
+</li>
+<li class="team__item">
+    <div>
+        <img class="team" src="./person.jpg" alt="team-member">
+        <p class="team_name">Dmytro</p>
+        <p class="position">Developer</p>
+    </div>
+</li>
+<li class="team__item">
+    <div>
+        <img class="team" src="./person.jpg" alt="team-member">
+        <p class="team_name">Dmytro</p>
+        <p class="position">Developer</p>
+    </div>
+</li>
+<li class="team__item">
+    <div>
+        <img class="team" src="./person.jpg" alt="team-member">
+        <p class="team_name">Vsevolod</p>
+        <p class="position">Developer</p>
+    </div>
+</li>
+<li class="team__item">
+    <div>
+        <img class="team" src="./person.jpg" alt="team-member">
+        <p class="team_name">Vasyl</p>
+        <p class="position">Developer</p>
+    </div>
+</li>
+<li class="team__item">
+    <div>
+        <img class="team" src="./person.jpg" alt="team-member">
+        <p class="team_name">Hanna</p>
+        <p class="position">Developer</p>
+    </div>
+</li>
+    </ul>
+</div>
+
+</body>
+</html>
