@@ -8,4 +8,4 @@ var t;!function(e,n){"object"==typeof exports&&"object"==typeof module?module.ex
 },{"tui-pagination":"jPMh"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/pagination.js");
 },{"./sass/main.scss":"clu1","./js/pagination.js":"o8lo"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka-project/src.7c92c7cb.js.map
+//# sourceMappingURL=/filmoteka-project/src.0153ac7d.js.map
