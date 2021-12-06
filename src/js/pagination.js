@@ -46,6 +46,9 @@ const paginationBlock = document.querySelector(".tui-pagination");
 
 const takePageNumber = (event) => {
 
+    document.querySelector(".tui-ico-first").textContent = 1;
+    document.querySelector(".tui-ico-last").textContent = totalItemsValue/itemsPerPageValue;
+
     const takeSelectedNumber = document.querySelector(".tui-is-selected");
 
 if (event.target.className.includes("tui-page-btn tui-is-disabled tui-prev custom-class-prev") || event.target.className.includes("tui-page-btn tui-is-disabled tui-next custom-class-next")) {
@@ -66,3 +69,20 @@ let clickedPage = paginationBlock.addEventListener('click', takePageNumber);
 if (clickedPage !== undefined) {
     console.log(clickedPage);
 }
+
+document.querySelector(".tui-ico-first").textContent = 1;
+document.querySelector(".tui-ico-last").textContent = totalItemsValue / itemsPerPageValue;
+
+//Change file "dist/tui-pagination.js" of tui.paganation
+
+// update: function(viewData) {
+//       this._empty();
+//       this._appendPrevButton(viewData);
+//       this._appendFirstButton(viewData);
+//       this._appendPrevMoreButton(viewData);
+//       this._appendPages(viewData);
+//       this._appendNextMoreButton(viewData);
+//       this._appendLastButton(viewData);
+//       this._appendNextButton(viewData);
+      
+//     }
