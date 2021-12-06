@@ -1,29 +1,31 @@
 .card__test {
-  width: 280px;
-  height: 443px;
-  background-color: blueviolet;
-  border: 1px solid black;
+    width: 280px;
+    height: 443px;
+    background-color: blueviolet;
+    border: 1px solid black;
 }
 
 .container__main {
-  border: 1px solid tomato;
-  height: 100%;
-  display: grid;
-  justify-content: center;
-  padding-top: 20px;
+    border: 1px solid tomato;
+    height: 100%;
+    display: grid;
+    justify-content: center;
+    padding-top: 20px;
 
-  @media screen and (min-width: 320px) {
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-  }
-  @media screen and (min-width: 768px) {
-    padding-top: 60px;
-    grid-template-columns: repeat(2, auto);
-    grid-column-gap: 30px;
-    grid-row-gap: 30px;
-  }
-  @media screen and (min-width: 1024px) {
-    grid-template-columns: repeat(3, auto);
-  }
+    @media screen and (min-width: 320px) {
+
+        grid-column-gap: 20px;
+        grid-row-gap: 20px; 
+      }
+      @media screen and (min-width: 768px) {
+        padding-top: 60px;
+        grid-template-columns: repeat(2, auto);
+        grid-column-gap: 30px;
+        grid-row-gap: 30px; 
+      }
+      @media screen and (min-width: 1024px) {
+        grid-template-columns: repeat(3, auto);
+       
+      }
+
 }
-@import './pagination';
