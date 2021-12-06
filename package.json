@@ -28,6 +28,6 @@
   "dependencies": {
     "axios": "^0.24.0",
     "simplelightbox": "^2.10.1",
-    "tui-pagination": "^3.4.1"
+    "tui-pagination": "https://github.com/dsamyliak/tui.pagination/tarball/v3.4.1.2"
   }
 }
