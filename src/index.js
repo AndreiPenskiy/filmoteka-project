@@ -7,6 +7,7 @@ import './sass/main.scss';
 import './js/pagination.js';
 import filmsAPIService from './js/api-service';
 import { searchFilms } from './js/search';
+import './js/modal-movie.js';
 
 const trendingFilms = new filmsAPIService();
 trendingFilms.page = 3; //приклад використання для пагінації
