@@ -5,7 +5,7 @@ import './sass/main.scss';
 //import Pagination from 'tui-pagination';
 
 import './js/pagination.js';
-import filmsAPIService from './js/API-service';
+import filmsAPIService from './js/api-service';
 import { searchFilms } from './js/search';
 
 const trendingFilms = new filmsAPIService();
