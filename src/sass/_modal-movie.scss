@@ -15,15 +15,8 @@
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-body {
-  background-color: var(--bg-second-color);
-}
-
 .modal-movie {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   display: flex;
   flex-direction: column;
   background-color: var(--bg-main-color);
@@ -35,6 +28,13 @@ body {
   font-size: 12px;
   line-height: 133%;
   color: var(--txt-main-color);
+
+  max-height: 100vh;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
@@ -49,28 +49,42 @@ body {
 
 .modal-movie__container {
   width: 240px;
+  min-height: 356px;
   border-radius: 5px;
 
   @media screen and (min-width: 768px) {
     width: 264px;
+    min-height: 374px;
   }
 
   @media screen and (min-width: 1024px) {
     width: 396px;
+    min-height: 478px;
   }
 }
 
 .modal-movie__container:first-child {
+  background-position: top;
+  background-repeat: no-repeat;
+
   @media screen and (max-width: 767.9px) {
     margin-bottom: 30px;
+    background-image: url('../images/modal-movie/movie-cover-mobile.jpg');
   }
 
   @media screen and (min-width: 768px) {
     margin-right: 30px;
+    background-image: url('../images/modal-movie/movie-cover-tablet.jpg');
+  }
+
+  @media screen and (min-width: 1024px) {
+    margin-right: 30px;
+    background-image: url('../images/modal-movie/movie-cover-desktop.jpg');
   }
 }
 
 .modal-movie__title {
+  font-weight: inherit;
   font-size: 20px;
   line-height: 117%;
   text-transform: uppercase;
@@ -109,12 +123,14 @@ body {
   background-color: var(--bg-second-color);
   border-radius: 5px;
 
-  &:not(:last-child) {
+  &:first-child {
+    color: var(--bg-main-color);
     background-color: var(--accent-color);
   }
 }
 
 .modal-movie-about__title {
+  font-weight: inherit;
   text-transform: uppercase;
   margin-bottom: 10px;
 }
@@ -137,6 +153,7 @@ body {
   min-height: 44px;
   border: 1px solid var(--border-color);
   border-radius: 5px;
+  font-weight: inherit;
   text-transform: uppercase;
   background-color: transparent;
   cursor: pointer;
@@ -168,20 +185,19 @@ body {
   justify-content: center;
   width: 30px;
   height: 30px;
-  cursor: pointer;
-  background-color: transparent;
   border: none;
-}
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
 
-.modal-movie-btn-close__icon {
-  width: 14px;
-  height: 14px;
+  background-image: url('../images/modal-movie/close.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.25);
+  }
 
   transition: all var(--time) var(--timing-function);
-
-  .modal-movie-btn-close:hover &,
-  .modal-movie-btn-close:focus & {
-    fill: var(--accent-color);
-    transform: scale(1.2);
-  }
 }

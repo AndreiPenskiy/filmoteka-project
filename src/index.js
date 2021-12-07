@@ -5,3 +5,4 @@ import './sass/main.scss';
 //import Pagination from 'tui-pagination';
 
 import './js/pagination.js';
+import './js/modal-movie.js';
