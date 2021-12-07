@@ -1,6 +1,6 @@
 import modalMovieTemplate from '../templates/modal-movie.hbs';
 import * as basicLightbox from 'basiclightbox';
-import 'basicLightbox/dist/basicLightbox.min.css';
+import '../sass/main.scss';
 
 const movieCard = document.querySelector('.container__main');
 movieCard.addEventListener('click', openMovieModal);
