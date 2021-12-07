@@ -31,7 +31,7 @@ body {
   font-size: 14px;
 }
 input,
-botton,
+button,
 textarea {
   font-family: inherit;
 }
@@ -129,6 +129,11 @@ body {
   //   width: 320px;
   margin: 0 auto;
   position: relative;
+
+  &__my-library {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/header__my-library/my-lib-header-mob.jpg);
+  }
 }
 // dpr2 и 280px+
 @media (min-device-pixel-ratio: 2) and (min-width: 280px),
@@ -137,7 +142,13 @@ body {
   .header {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header/header-mob-2x.jpg);
+    
+      &__my-library {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/header__my-library/my-lib-header-mob@2x.jpg);
+      }
   }
+  
 }
 .header__wrapper {
   display: flex;
@@ -246,7 +257,15 @@ body {
 
     padding-top: 48.4px;
     // width: 768px;
+
+    &__my-library {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header__my-library/my-lib-header-tablet.jpg);
+    }
   }
+  
+
+
   // dpr2 и 768px
   @media (min-device-pixel-ratio: 2) and (min-width: 768px),
     (min-resolution: 192dpi) and (min-width: 768px),
@@ -254,7 +273,13 @@ body {
     .header {
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/header-tablet-2x.jpg);
+
+      &__my-library {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/header__my-library/my-lib-header-tablet@2x.jpg);
+      }
     }
+    
   }
 
   .logo__list {
@@ -287,7 +312,13 @@ body {
       url(../images/header/header-desktop-1.jpg);
     background-position: top;
     // width: 1024px;
+
+    &__my-library {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header__my-library/my-lib-header-desktop.jpg);
+    }
   }
+  
   // dpr2 и 1024px
   @media (min-device-pixel-ratio: 2) and (min-width: 1024px),
     (min-resolution: 192dpi) and (min-width: 1024px),
@@ -295,6 +326,11 @@ body {
     .header {
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/header-desktop-2x.jpg);
+
+      &__my-library {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/header__my-library/my-lib-header-desktop@2x.jpg);
+      }
     }
   }
 }
