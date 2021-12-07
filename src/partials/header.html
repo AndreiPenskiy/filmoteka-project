@@ -9,8 +9,8 @@
       </a>
         <nav class="navigation">
           <ul class="navigation__list">
-              <li class="navigation__item"><button class="navigation__button current" type="button">Home</button></li>
-              <li class="navigation__item"><button class="navigation__button" type="button">my library</button></li>
+              <li class="navigation__item"><button class="navigation__button current home__btn" type="button">Home</button></li>
+              <li class="navigation__item"><button class="navigation__button my-library__btn" type="button">my library</button></li>
             </ul>
         </nav>
       </div> 
@@ -24,5 +24,10 @@
         />
         <button class="button__search" type="submit"><svg class="input__icon" width="12" height="12"><use href="./images/header/sprite-header.svg#search"></use></svg></button>
       </form>
+
+      <div class="library-btn__list is-hidden">
+        <button class='library-btn'>Watched</button>
+        <button class='library-btn'>Queue</button>
+      </div>
     </div>
   </header>

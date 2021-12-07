@@ -31,7 +31,7 @@
     font-size: 14px;
   }
   input,
-  botton,
+  button,
   textarea {
     font-family: inherit;
   }
@@ -100,7 +100,15 @@
   padding-bottom: 97px;
 //   width: 320px;
   margin: 0 auto;
+
+    &__my-library {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/header__my-library/header__my-library__mobile.jpg);
+  }
 }
+
+
+
 // dpr2 и 280px+
 @media (min-device-pixel-ratio: 2) and (min-width: 280px),
   (min-resolution: 192dpi) and (min-width: 280px),
@@ -108,6 +116,11 @@
   .header {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header/header-mob-2x.jpg);
+    
+      &__my-library {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/header__my-library/header__my-library__mobile@2x.jpg);
+    }
   }
 }
 .header__wrapper {
@@ -217,8 +230,14 @@
 
     padding-top: 48.4px;
     // width: 768px;
-    
+
+      &__my-library {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/header__my-library/header__my-library__tablet.jpg);
+    }
   }
+
+  
   // dpr2 и 768px
   @media (min-device-pixel-ratio: 2) and (min-width: 768px),
     (min-resolution: 192dpi) and (min-width: 768px),
@@ -226,6 +245,11 @@
     .header {
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/header-tablet-2x.jpg);
+
+      &__my-library {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+          url(../images/header__my-library/header__my-library__tablet@2x.jpg);
+      }    
     }
   }
   
@@ -247,11 +271,10 @@
     color: #ffffff;
   }
 
-
-.input__wrapper {
-    width: 336px;
-    margin: 0 auto;
-  }
+  .input__wrapper {
+      width: 336px;
+      margin: 0 auto;
+    }
 }
 //DESKTOP
 @media screen and (min-width: 1024px) {
@@ -260,8 +283,13 @@
       url(../images/header/header-desktop-1.jpg);
     background-position: top;
     // width: 1024px;
-    
+
+      &__my-library {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/header__my-library/header__my-library__desktop.jpg);
+    }
   }
+  
   // dpr2 и 1024px
   @media (min-device-pixel-ratio: 2) and (min-width: 1024px),
     (min-resolution: 192dpi) and (min-width: 1024px),
@@ -269,7 +297,11 @@
     .header {
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/header-desktop-2x.jpg);
+
+      &__my-library {
+          background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+            url(../images/header__my-library/header__my-library__desktop@2x.jpg);
+        }
     }
   }
- 
 }
