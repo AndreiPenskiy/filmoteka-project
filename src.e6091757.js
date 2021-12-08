@@ -88,4 +88,4 @@ const e=document.querySelector(".header"),r=document.querySelector(".input__wrap
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/pagination.js");var e=r(require("./js/api-service")),s=require("./js/search");function r(e){return e&&e.__esModule?e:{default:e}}require("./js/modal-movie.js"),require("./js/my-library-header");const a=new e.default;a.page=3,a.language="en",a.getTrendingFilms().then(e=>console.log("популярні фільми: ",e.data)),a.getSingleFilmByID(497698).then(e=>console.log("окремий фільм:",e.data)),a.getGenres().then(e=>console.log("всі жанри",e.data));const n=document.querySelector(".search-form");n.addEventListener("submit",s.searchFilms);
 },{"./sass/main.scss":"clu1","./js/pagination.js":"o8lo","./js/api-service":"hC31","./js/search":"HU2o","./js/modal-movie.js":"gVkN","./js/my-library-header":"ljYO"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka-project/src.a1d62e32.js.map
+//# sourceMappingURL=/filmoteka-project/src.e6091757.js.map
