@@ -1,0 +1,91 @@
+.card__item {
+  list-style-type: none;
+  height: 440px;
+  transition-property: transform;
+  transition-duration: 250ms;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.03);
+  }
+}
+
+.card__link {
+  text-decoration: none;
+  color: black;
+}
+
+.card__poster {
+  display: block;
+  height: 398px;
+}
+
+.card__title {
+  text-transform: uppercase;
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.33;
+}
+
+.card__description {
+  display: inline;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #ff6b08;
+  /* color: var(--accent-color); */
+}
+
+.card__rating {
+  display: inline-block;
+  margin-left: 10px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  border-radius: 5px;
+  color: #eeeeee;
+  background-color: #ff6b08;
+  /* background-color: var(--accent-color); */
+  width: 36px;
+  height: 16px;
+  font-size: 14px;
+  line-height: 1.17;
+  text-align: center;
+}
+
+// ************************** MOB *******************
+
+// @media screen and (max-width: 479px) {
+// }
+
+@media screen and (max-width: 767px) {
+  .card__item {
+    width: 280px;
+  }
+
+  .card__poster {
+    width: 280px;
+  }
+}
+
+// ************************ TABLET ***************************
+
+@media screen and (min-width: 768px) {
+  .card__item {
+    width: 294px;
+  }
+
+  .card__poster {
+    width: 294px;
+  }
+}
+
+// *********************** DESKTOP ********************
+
+@media screen and (min-width: 1024px) {
+  .card__item {
+    width: 274px;
+  }
+
+  .card__poster {
+    width: 274px;
+  }
+}
