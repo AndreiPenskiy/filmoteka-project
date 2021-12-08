@@ -4,9 +4,14 @@ const searchNotification = document.querySelector('.search-notification'); // о
 const headerHome = document.querySelector('.home__btn'); // кнопка навігації Home
 const headerLibrary = document.querySelector('.my-library__btn'); // кнопка навігації My library
 const myLibraryBtnList = document.querySelector('.library-btn__list'); // кнопки хедеру My library Watched та Queue
+const watchedBtn = document.querySelector('.watched-btn');
+const queueBtn = document.querySelector('.queue-btn');
 
 headerHome.addEventListener('click', onheaderHomeBtnClick);
 headerLibrary.addEventListener('click', onMyLibraryBtnClick);
+watchedBtn.addEventListener('click', onWatchedBtnClick);
+queueBtn.addEventListener('click', onQueueBtnClick);
+
 
 function onheaderHomeBtnClick () {
     myLibraryBtnList.classList.add('is-hidden') // приховуються кнопки Watched та Queue
@@ -26,3 +31,17 @@ function onMyLibraryBtnClick () {
     headerHome.classList.remove('current'); // видаляється помаранчеве підкреслення з кнопки Home
     header.classList.add('header__my-library'); // додається нове фонове зображення хедера
 }
+
+function onWatchedBtnClick () {
+    queueBtn.classList.remove('active');
+    watchedBtn.classList.add('active');
+
+}
+
+function onQueueBtnClick () {
+    watchedBtn.classList.remove('active');
+    queueBtn.classList.add('active');
+}
+
+
+// add-to-watched/watched-btn
