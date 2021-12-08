@@ -9,6 +9,7 @@ const IMG_URL = `https://www.themoviedb.org/t/p/w500`;
 homepageLink.addEventListener('click', Click);
 function Click() {
     console.log('ку');
+}
 
 trendingFilms.getTrendingFilms().then(res => res.json().then(data => showTrendMov(data.results)));
 
