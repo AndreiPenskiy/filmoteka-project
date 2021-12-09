@@ -10,6 +10,7 @@ import { searchFilms } from './js/search';
 import './js/modal-movie.js';
 import './js/my-library-header';
 import './js/btn-theme';
+import './js/firebaseGoogleAuth';
 
 const trendingFilms = new filmsAPIService();
 trendingFilms.page = 3; //приклад використання для пагінації

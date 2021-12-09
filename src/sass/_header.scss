@@ -89,7 +89,7 @@ body {
     transform: rotate(0deg);
   }
 }
-.lang{
+.lang {
   position: absolute;
   right: 30px;
   bottom: 0;
@@ -110,11 +110,10 @@ body {
 }
 .lang-site:hover .lang-site__link--other {
   visibility: visible;
-  
 }
 
- .lang-site__item:hover .link{
-  color: #FF6B08;
+.lang-site__item:hover .link {
+  color: #ff6b08;
 }
 
 .header {
@@ -132,7 +131,7 @@ body {
 
   &__my-library {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url(../images/header__my-library/my-lib-header-mob.jpg);
+      url(../images/header__my-library/my-lib-header-mob.jpg);
   }
 }
 // dpr2 и 280px+
@@ -142,13 +141,12 @@ body {
   .header {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header/header-mob-2x.jpg);
-    
-      &__my-library {
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+
+    &__my-library {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header__my-library/my-lib-header-mob@2x.jpg);
-      }
+    }
   }
-  
 }
 .header__wrapper {
   display: flex;
@@ -260,11 +258,9 @@ body {
 
     &__my-library {
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(../images/header__my-library/my-lib-header-tablet.jpg);
+        url(../images/header__my-library/my-lib-header-tablet.jpg);
     }
   }
-  
-
 
   // dpr2 и 768px
   @media (min-device-pixel-ratio: 2) and (min-width: 768px),
@@ -276,10 +272,9 @@ body {
 
       &__my-library {
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(../images/header__my-library/my-lib-header-tablet@2x.jpg);
+          url(../images/header__my-library/my-lib-header-tablet@2x.jpg);
       }
     }
-    
   }
 
   .logo__list {
@@ -291,6 +286,7 @@ body {
     padding-top: 9px;
     margin-bottom: 40px;
     padding-left: 0;
+    align-items: center;
   }
   .logotext__link {
     display: block;
@@ -315,10 +311,10 @@ body {
 
     &__my-library {
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(../images/header__my-library/my-lib-header-desktop.jpg);
+        url(../images/header__my-library/my-lib-header-desktop.jpg);
     }
   }
-  
+
   // dpr2 и 1024px
   @media (min-device-pixel-ratio: 2) and (min-width: 1024px),
     (min-resolution: 192dpi) and (min-width: 1024px),
@@ -329,7 +325,7 @@ body {
 
       &__my-library {
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(../images/header__my-library/my-lib-header-desktop@2x.jpg);
+          url(../images/header__my-library/my-lib-header-desktop@2x.jpg);
       }
     }
   }
@@ -342,4 +338,27 @@ body {
   font-size: 14px;
   line-height: 1.14;
   margin-top: 30px;
+}
+
+.user-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  margin-left: 10px;
+}
+
+.navigation__button.signOut {
+  display: none;
+}
+
+.navigation__button.signIn {
+  display: block;
+}
+
+.navigation__item.sign-in {
+  display: flex;
+}
+
+#googleUser {
+  margin-left: 10px;
 }
