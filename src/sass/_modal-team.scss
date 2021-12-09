@@ -1,92 +1,228 @@
-.team__container {
-  overflow-y: scroll;
+.page-footer {
+  padding-top: 30px;
+  padding-bottom: 28px;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  @media screen and (max-width: 499px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.copy-right-text,
+.text-company {
+  margin-left: 5px;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  align-items: center;
+  color: #545454;
+  display: flex;
+}
+
+.icon-heart {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.text-company-link {
+  text-decoration: underline;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.12;
+  align-items: center;
+  color: #545454;
+  display: flex;
+  padding-left: 5px;
+  cursor: pointer;
+  &:hover {
+    transition: 1s;
+    color: grey;
+  }
+}
+
+.backdrop {
   position: fixed;
-  background-color: rgba(245, 239, 239, 0.25);
-  opacity: 1;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  width: 300px;
-  max-width: 528px;
-  max-height: 100vh;
-  padding: 30px 20px 30px 20px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  transition: 1s;
+  transform: opacity(1);
+}
+.backdrop.is-hidden {
   opacity: 0;
   visibility: hidden;
 }
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .team__container {
-    margin: auto;
-    width: 628px;
-    height: 628px;
-    padding: 30px;
+.team-modal {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 95%;
+  height: 95%;
+  border-radius: 5px;
+  background-color: white;
+  overflow-y: scroll;
+}
+.team-modal-close-button {
+  position: absolute;
+  top: 4%;
+  right: 3%;
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+  border-color: #ff6b08;
+  border-radius: 6px;
+  background-color: #ff6b08;
+  transition: 1s;
+  transform: scale(1);
+  z-index: 100;
+  @media screen and (max-width: 480px) {
+    top: 3%;
+    right: 3%;
   }
 }
-@media screen and (min-width: 1024px) {
-  .team__container {
-    min-width: 900px;
-    height: 700px;
-    padding: 30px;
-  }
+.team-modal-close-button:hover {
+  border-color: #ff6b08;
+  background-color: #ffffff;
 }
-.title-wrapper {
-  display: flex;
+.close-icon {
+  width: 100%;
+  height: 100%;
+  fill: #ffffff;
+  transition: 1s;
+  transform: scale(1);
+}
+.team-modal-close-button:hover .close-icon {
+  fill: #ff6b08;
+  border-color: #ff6b08;
+}
+.team-card-list {
   justify-content: center;
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .title-wrapper {
-    margin-bottom: 30px;
-    margin-top: 30px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .title-wrapper {
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-}
-.team__title {
-  font-size: 20px;
-  margin-left: 10px;
-  margin-top: 5px;
-}
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .team__title {
-    line-height: 1.16;
-    /* margin-top: 10px; */
-  }
-}
-@media screen and (min-width: 1024px) {
-  .team__title {
-    margin-top: 10px;
-    /* margin-bottom: 30px; */
-    font-size: 28px;
-  }
-}
-.under {
-  color: #ff6b08;
-  height: 2px;
-}
+  padding: 30px;
+  &-item {
+    background-color: rgb(225, 225, 233);
+    border-radius: 25px;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+      0px 1px 3px rgba(0, 0, 0, 0.12);
+    height: 100%;
+    padding-bottom: 30px;
+    transition: 0.8s;
 
-.team__list {
-  list-style: none;
+    &:hover {
+      box-shadow: 0 0 20px rgba(250, 119, 12, 0.897);
+      transform: scale(1.03);
+    }
+  }
+  &-img {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-radius: 50%;
+  }
+}
+.team-discription {
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.17;
   text-align: center;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  color: black;
 }
-@media screen and (min-width: 767px) and (max-width: 1023px) {
-  .team__list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
+.team-contact {
+  display: block;
+  font-family: Roboto;
+  font-size: 10px;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  color: #757575;
 }
 
-@media screen and (max-width: 766px) {
-  .team__list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 5%;
+@media screen and (max-width: 767px) {
+  .team-card-list {
+    display: block;
+    &-item {
+      margin: 0 auto;
+      max-width: 320px;
+
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+  .team-name {
+    font-family: Roboto;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.17;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    color: black;
+  }
+  .team-contact {
+    font-size: 16px;
   }
 }
-.team {
-  border-radius: 5%;
+@media screen and (min-width: 768px) {
+  .team-card-list {
+    display: flex;
+    flex-wrap: wrap;
+    &-item {
+      max-width: calc((100% - 40px) / 2);
+    }
+  }
+  .team-name {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.17;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    color: black;
+  }
+  .team-contact {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .team-card-list-item {
+    margin-bottom: 30px;
+    &:nth-child(odd) {
+      margin-right: 30px;
+    }
+  }
+}
+@media screen and (min-width: 1024px) {
+  .team-card-list {
+    flex-wrap: wrap;
+    &-item {
+      max-width: calc((100% - 30px * 4) / 6);
+      margin-bottom: 50px;
+      margin-right: 30px;
+      &:last-child {
+        margin-right: 0px;
+      }
+      &:nth-child(5) {
+        margin-right: 0px;
+      }
+    }
+  }
+  .team-name {
+    font-size: 16px;
+  }
+  .team-discription {
+    font-size: 16px;
+  }
+  .team-contact {
+    font-size: 10px;
+  }
 }
