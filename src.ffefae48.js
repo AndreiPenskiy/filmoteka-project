@@ -109,4 +109,4 @@ var t=arguments[3];Object.defineProperty(exports,"__esModule",{value:!0}),export
 },{"firebase/auth":"zKjx"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/pagination.js");var e=s(require("./js/api-service")),r=require("./js/search");function s(e){return e&&e.__esModule?e:{default:e}}require("./js/modal-movie.js"),require("./js/my-library-header"),require("./js/btn-theme"),require("./js/firebaseGoogleAuth");const t=new e.default;t.page=3,t.language="en",t.getTrendingFilms().then(e=>console.log("популярні фільми: ",e.data)),t.getSingleFilmByID(497698).then(e=>console.log("окремий фільм:",e.data)),t.getGenres().then(e=>console.log("всі жанри",e.data));const a=document.querySelector(".search-form");a.addEventListener("submit",r.searchFilms);
 },{"./sass/main.scss":"clu1","./js/pagination.js":"o8lo","./js/api-service":"hC31","./js/search":"HU2o","./js/modal-movie.js":"gVkN","./js/my-library-header":"ljYO","./js/btn-theme":"dF5F","./js/firebaseGoogleAuth":"Vz0l"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka-project/src.7ab0d25c.js.map
+//# sourceMappingURL=/filmoteka-project/src.ffefae48.js.map
