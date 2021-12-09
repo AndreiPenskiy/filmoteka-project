@@ -90,4 +90,4 @@ const e=document.querySelector("#theme-check"),c=document.querySelector("body"),
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/pagination.js");var e=s(require("./js/api-service")),r=require("./js/search");function s(e){return e&&e.__esModule?e:{default:e}}require("./js/modal-movie.js"),require("./js/my-library-header"),require("./js/btn-theme");const n=new e.default;n.page=3,n.language="en",n.getTrendingFilms().then(e=>console.log("популярні фільми: ",e.data)),n.getSingleFilmByID(497698).then(e=>console.log("окремий фільм:",e.data)),n.getGenres().then(e=>console.log("всі жанри",e.data));const t=document.querySelector(".search-form");t.addEventListener("submit",r.searchFilms);
 },{"./sass/main.scss":"clu1","./js/pagination.js":"o8lo","./js/api-service":"hC31","./js/search":"HU2o","./js/modal-movie.js":"gVkN","./js/my-library-header":"ljYO","./js/btn-theme":"dF5F"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka-project/src.356a7940.js.map
+//# sourceMappingURL=/filmoteka-project/src.7187b946.js.map
