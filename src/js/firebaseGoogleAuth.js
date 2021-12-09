@@ -39,8 +39,8 @@ function signoutUser(){
         document.getElementById('signin').classList.remove('signOut');
       document.getElementById('signout').classList.remove('signIn');
       document.getElementById('googleUser').style.display = "none";
-    }).catch(e => {
-          console.log(e)
+    }).catch(error => {
+          console.log(error)
         })
       }
 
