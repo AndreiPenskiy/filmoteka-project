@@ -12,7 +12,7 @@ import './js/my-library-header';
 import './js/btn-theme';
 import './js/firebaseGoogleAuth';
 
-const trendingFilms = new filmsAPIService();
+export const trendingFilms = new filmsAPIService();
 trendingFilms.page = 3; //приклад використання для пагінації
 trendingFilms.language = 'en'; //приклад використання для локалізації
 
