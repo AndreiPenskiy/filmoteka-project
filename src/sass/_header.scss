@@ -338,6 +338,13 @@ body {
   font-size: 14px;
   line-height: 1.14;
   margin-top: 30px;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 5px;
+    text-align: left;
+    display: block;
+    width: 150px;
+  }
 }
 
 .user-img {

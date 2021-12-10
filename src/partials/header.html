@@ -23,7 +23,7 @@
         </ul>
       </nav>
     </div>
-    
+
     <form class="input__wrapper search-form" id="search-form">
       <input
         class="header__input"
@@ -31,6 +31,7 @@
         name="searchQuery"
         autocomplete="off"
         placeholder="Поиск фильмов"
+        required
       />
       <button class="button__search" type="submit">
         <svg class="input__icon" width="12" height="12">
@@ -38,26 +39,25 @@
         </svg>
       </button>
     </form>
-    <input class="lyf" type="checkbox" id='theme-check'> 
-    <p class="search-notification"></p>
+    <input class="lyf" type="checkbox" id="theme-check" />
   </div>
 
-<div class="lang">
-      <ul class="lang-site list">
-        <li class="lang-site__item">
-            <a href="" class="lang-site__link link">ENG</a>
-        </li>
-        <li class="lang-site__item">
-            <a href="" class="lang-site__link--other link">UKR</a>
-        </li>
-        <li class="lang-site__item">
-            <a href="" class="lang-site__link--other link">RUS</a>
-        </li>
+  <div class="lang">
+    <ul class="lang-site list">
+      <li class="lang-site__item">
+        <a href="" class="lang-site__link link">ENG</a>
+      </li>
+      <li class="lang-site__item">
+        <a href="" class="lang-site__link--other link">UKR</a>
+      </li>
+      <li class="lang-site__item">
+        <a href="" class="lang-site__link--other link">RUS</a>
+      </li>
     </ul>
-    </div>
-  
-    <div class="library-btn__list is-hidden">
-      <button class="library-btn watched-btn active" type="button">Watched</button>
-      <button class="library-btn queue-btn" type="button">Queue</button>
-    </div>
+  </div>
+
+  <div class="library-btn__list is-hidden">
+    <button class="library-btn watched-btn active" type="button">Watched</button>
+    <button class="library-btn queue-btn" type="button">Queue</button>
+  </div>
 </header>
