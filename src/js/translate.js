@@ -170,14 +170,12 @@ const i18n = new domI18n({
 
   eng.addEventListener('click', evt => {
     evt.preventDefault();
-    input.placeholder = "Search Movies";
     i18n.changeLanguage('en');
     
   });
 
   ukr.addEventListener('click', evt => {
     evt.preventDefault();
-    // input.placeholder = "Пошук фільмів"
     i18n.changeLanguage('uk');
 
     
@@ -185,14 +183,12 @@ const i18n = new domI18n({
 
   rus.addEventListener('click', evt => {
     evt.preventDefault();
-    // input.placeholder = "Поиск фильмов"
     i18n.changeLanguage('ru');
     
   });
 
   pol.addEventListener('click', evt => {
     evt.preventDefault();
-    // input.placeholder = "Znajdź film";
     i18n.changeLanguage('pl');
     
   });
