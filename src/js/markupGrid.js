@@ -7,7 +7,7 @@ if (totalImages <= RENDER_IMAGES_NUMBERS) {
 showButton(refs.loadMoreButton);
 
 
-function markupGallery(images) {
+export default function markupGallery(images) {
   const markup = images
     .map(image => {
       return `

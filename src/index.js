@@ -11,6 +11,7 @@ import './js/modal-movie.js';
 import './js/my-library-header';
 import './js/btn-theme';
 import './js/firebaseGoogleAuth';
+import './js/homepage-rendering';
 
 const trendingFilms = new filmsAPIService();
 trendingFilms.page = 3; //приклад використання для пагінації
