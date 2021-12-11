@@ -9,6 +9,7 @@ import filmsAPIService from './js/api-service';
 import { searchFilms } from './js/search';
 import './js/modal-movie.js';
 import './js/my-library-header';
+import './js/translate.js'
 import './js/btn-theme';
 import './js/firebaseGoogleAuth';
 
