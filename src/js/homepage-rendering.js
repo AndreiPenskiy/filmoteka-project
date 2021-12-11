@@ -1,40 +1,72 @@
 import filmsAPIService from './api-service';
-// import markupGallery from './markupGrid';
 
 const trendingFilms = new filmsAPIService();
 
-const homepageLink = document.querySelector('.logo__list');
+const homepageLogo = document.querySelector('.logo__list');
+const homeBtn = document.querySelector('.home__btn');
 const main = document.querySelector('.container__main');
 const IMG_URL = `https://image.tmdb.org/t/p/w500`;
+let singleGenre;
 
-homepageLink.addEventListener('click', showTrendMov);
-  
+homepageLogo.addEventListener('click', showTrendMov);
+homeBtn.addEventListener('click', showTrendMov);
+window.addEventListener('load', showTrendMov);
+
 
 function showTrendMov(event) {
     event.preventDefault();
     main.innerHTML = '';
-    console.log('щас буду рендерить фильмы');
+    // console.log('щас буду рендерить фильмы');
     
-    
+
     trendingFilms.getTrendingFilms().then(res => res.data.results.forEach(movie => {
         const {title, poster_path, vote_average, genre_ids, release_date} = movie;
-        console.log(movie);
+        // console.log(movie);      
 
-        
+        getGenreName(genre_ids);
 
         const movieEl = document.createElement('li');
         movieEl.classList.add('card__item');
-        movieEl.innerHTML = `<a class="card__link" href="#">
-        <img src="${IMG_URL+poster_path}" alt ="${title}" class="card__poster">
-        
-            <h2 class="card__title">${title}</h2>
-            <p class="card__description">${genre_ids} | ${release_date.slice(0,4)}</p>
-            <p class="card__rating">${vote_average}</p>
-        
-        </a>`
+
+        renderMovieCard(movieEl, poster_path, title, singleGenre, release_date, vote_average);
         main.appendChild(movieEl);
     })
     
     )}
 
+    // Сохраняем жанры в Loal Storage, достаем по id
 
+    trendingFilms.getGenres().then(res => res.data.genres.forEach(genre => 
+        localStorage.setItem(genre.id, genre.name)  
+
+    ))
+
+    function getGenreName(ids) {
+        ids.forEach(id => {
+            singleGenre = localStorage.getItem(id);
+            console.log(singleGenre);         
+        })
+    }
+
+// Функция для создания разметки карточки
+
+    function renderMovieCard(element, poster_path, title, genre, release_date, vote_average) {
+        element.innerHTML = `<a class="card__link" href="#">
+        <img src="${IMG_URL+poster_path}" alt ="${title}" class="card__poster">
+        
+            <h2 class="card__title">${title}</h2>
+            <p class="card__description">${genre} | ${release_date.slice(0,4)}</p>
+            <p class="card__rating">${vote_average}</p>
+        
+        </a>`
+    }
+    
+    
+    
+
+    
+
+
+
+    
+    
