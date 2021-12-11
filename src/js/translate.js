@@ -1,5 +1,4 @@
-
-    function domI18n(options) {
+   function domI18n(options) {
   
       options = options || {};
   
@@ -168,33 +167,30 @@ const i18n = new domI18n({
   const pol = document.getElementById('pl');
   const input = document.getElementById('input');
 
+
   eng.addEventListener('click', evt => {
     evt.preventDefault();
-    input.placeholder = "Search Movies";
-    i18n.changeLanguage('en');
+        i18n.changeLanguage('en');
     
   });
 
   ukr.addEventListener('click', evt => {
     evt.preventDefault();
-    // input.placeholder = "Пошук фільмів"
     i18n.changeLanguage('uk');
-
+    
     
   });
 
   rus.addEventListener('click', evt => {
     evt.preventDefault();
-    // input.placeholder = "Поиск фильмов"
     i18n.changeLanguage('ru');
-    
+   
   });
 
   pol.addEventListener('click', evt => {
     evt.preventDefault();
-    // input.placeholder = "Znajdź film";
     i18n.changeLanguage('pl');
-    
+  
   });
   
 
