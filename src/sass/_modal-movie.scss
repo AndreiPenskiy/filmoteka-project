@@ -3,15 +3,19 @@
   --font-main: 'Roboto', sans-serif;
 
   // colors
-  --txt-main-color: #000000;
+  --txt-main-color: #000;
   --txt-second-color: #8c8c8c;
-  --bg-main-color: #ffffff;
+  --bg-main-color: #fff;
   --bg-second-color: #f7f7f7;
   --accent-color: #ff6b01;
-  --border-color: #000000;
+  --border-color: #000;
+
+  --bg-modal-dark-theme: #333;
+  --bg-second-dark-theme: #8c8c8c;
+  --txt-dark-theme: #fff;
 
   // animation
-  --time: 250ms;
+  --time: 200ms;
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -19,6 +23,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 280px;
   background-color: var(--bg-main-color);
   padding: 48px 20px 40px 20px;
 
@@ -38,49 +43,40 @@
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
+    width: 618px;
     padding: 42px 30px 40px 30px;
   }
 
   @media screen and (min-width: 1024px) {
     flex-direction: row;
+    width: 882px;
     padding: 50px 30px 40px 30px;
   }
 }
 
-.modal-movie__container {
-  width: 240px;
-  min-height: 356px;
-  border-radius: 5px;
+.modal-movie__poster {
+  @media screen and (max-width: 767.9px) {
+    width: 100%;
+    margin-bottom: 30px;
+  }
 
   @media screen and (min-width: 768px) {
     width: 264px;
-    min-height: 374px;
+    margin-right: 30px;
   }
 
   @media screen and (min-width: 1024px) {
-    width: 396px;
-    min-height: 478px;
+    width: 304px;
   }
 }
 
-.modal-movie__container:first-child {
-  background-position: top;
-  background-repeat: no-repeat;
+.modal-movie__img {
+  width: inherit;
+  border-radius: 5px;
+}
 
-  @media screen and (max-width: 767.9px) {
-    margin-bottom: 30px;
-    background-image: url('../images/modal-movie/movie-cover-mobile.jpg');
-  }
-
-  @media screen and (min-width: 768px) {
-    margin-right: 30px;
-    background-image: url('../images/modal-movie/movie-cover-tablet.jpg');
-  }
-
-  @media screen and (min-width: 1024px) {
-    margin-right: 30px;
-    background-image: url('../images/modal-movie/movie-cover-desktop.jpg');
-  }
+.modal-movie__container {
+  width: 100%;
 }
 
 .modal-movie__title {
@@ -88,7 +84,7 @@
   font-size: 20px;
   line-height: 117%;
   text-transform: uppercase;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 
   @media screen and (min-width: 1024px) {
     font-size: 30px;
@@ -97,31 +93,36 @@
 
 .modal-movie-info {
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .modal-movie-info__title {
-  width: 45%;
-  padding: 5px 0;
+  vertical-align: top;
+  width: 40%;
   color: var(--txt-second-color);
 
-  @media screen and (min-width: 768px) {
-    width: 40%;
+  &:not(:last-child) {
+    padding-bottom: 10px;
   }
 }
 
 .modal-movie-info__value {
+  vertical-align: top;
   padding: 0;
-  vertical-align: center;
+
+  &:not(:last-child) {
+    padding-bottom: 10px;
+  }
 }
 
 .modal-movie-info__rate {
   display: inline-block;
   text-align: center;
   width: 36px;
-  height: 16px;
+  padding: 0.5px 4px;
   background-color: var(--bg-second-color);
   border-radius: 5px;
+  color: #000000;
 
   &:first-child {
     color: var(--bg-main-color);
@@ -151,11 +152,13 @@
 .modal-movie-btn {
   width: calc((100% - 15px) / 2);
   min-height: 44px;
+  padding: 0 5px;
   border: 1px solid var(--border-color);
   border-radius: 5px;
+  background-color: transparent;
   font-weight: inherit;
   text-transform: uppercase;
-  background-color: transparent;
+  color: var(--txt-main-color);
   cursor: pointer;
 
   transition: all var(--time) var(--timing-function);
@@ -176,7 +179,7 @@
   color: var(--bg-main-color);
 }
 
-.modal-movie-btn-close {
+.modal-movie-close {
   position: absolute;
   right: 10px;
   top: 10px;
@@ -193,11 +196,39 @@
   background-image: url('../images/modal-movie/close.svg');
   background-position: center;
   background-repeat: no-repeat;
+  opacity: 0.4;
 
   &:hover,
   &:focus {
-    transform: scale(1.25);
+    transform: scale(1.1);
+    background-color: var(--bg-second-color);
+    opacity: 1;
   }
 
-  transition: all var(--time) var(--timing-function);
+  transition: all 0.05s;
+}
+
+////////// Dark theme //////////
+
+body.body-theme {
+  .modal-movie {
+    background-color: var(--bg-modal-dark-theme);
+    color: var(--txt-dark-theme);
+  }
+
+  .modal-movie-btn {
+    background-color: var(--bg-second-dark-theme);
+    border: none;
+    &:hover,
+    &:focus {
+      background-color: var(--accent-color);
+    }
+  }
+
+  .modal-movie-close {
+    &:hover,
+    &:focus {
+      background-color: var(--bg-second-dark-theme);
+    }
+  }
 }
