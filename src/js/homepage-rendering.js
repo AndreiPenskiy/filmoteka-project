@@ -20,7 +20,7 @@ function showTrendMov(event) {
     
 
     trendingFilms.getTrendingFilms().then(res => res.data.results.forEach(movie => {
-        const {title, poster_path, vote_average, genre_ids, release_date} = movie;
+        const {title, poster_path, id, vote_average, genre_ids, release_date} = movie;
         // console.log(movie);      
 
         getGenreName(genre_ids);
@@ -28,30 +28,28 @@ function showTrendMov(event) {
         const movieEl = document.createElement('li');
         movieEl.classList.add('card__item');
 
-        renderMovieCard(movieEl, poster_path, title, singleGenre, release_date, vote_average);
+        renderMovieCard(movieEl, id, poster_path, title, singleGenre, release_date, vote_average);
         main.appendChild(movieEl);
     })
-    
     )}
 
     // Сохраняем жанры в Loal Storage, достаем по id
 
     trendingFilms.getGenres().then(res => res.data.genres.forEach(genre => 
         localStorage.setItem(genre.id, genre.name)  
-
     ))
 
     function getGenreName(ids) {
         ids.forEach(id => {
             singleGenre = localStorage.getItem(id);
-            console.log(singleGenre);         
+            // console.log(singleGenre);         
         })
     }
 
 // Функция для создания разметки карточки
 
-    function renderMovieCard(element, poster_path, title, genre, release_date, vote_average) {
-        element.innerHTML = `<a class="card__link" href="#">
+    function renderMovieCard(element, id, poster_path, title, genre, release_date, vote_average) {
+        element.innerHTML = `<a class="card__link" id = "${id}" href="#">
         <img src="${IMG_URL+poster_path}" alt ="${title}" class="card__poster">
         
             <h2 class="card__title">${title}</h2>
