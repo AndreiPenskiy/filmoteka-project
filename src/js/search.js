@@ -1,5 +1,6 @@
 import { trendingFilms } from '../index';
 import debounce from 'lodash.debounce';
+import renderMovieCard from './homepage-rendering';
 
 export const searchFilms = function (event) {
   event.preventDefault();
@@ -12,6 +13,7 @@ export const searchFilms = function (event) {
 
   trendingFilms.currentPage = 1;
   trendingFilms.allPages = 1;
+  document.querySelector('.container__main').innerHTML = ' ';
 
   trendingFilms
     .getFilmsByQuery(event.target.firstElementChild.value)
@@ -20,10 +22,25 @@ export const searchFilms = function (event) {
         trendingFilms.allPages = 0;
         return error;
       }
-      console.log('фільми за запитом: ', res.data);
-      // підказки тут https://docs.google.com/document/d/1Hrx6Rgc6hSu4L69pmSNMm8UyLrBKyviCQcfNAZEx5Q4/edit?usp=sharing
+      res.data.results.forEach(movie => {
+        const { title, poster_path, id, vote_average, genre_ids, release_date } = movie;
+
+        const temp = [];
+        if (genre_ids.length !== 0) {
+          for (let i = 0; i < genre_ids.length && i < 2; i += 1) {
+            temp.push(...trendingFilms.allGenres.filter(genre => genre.id === genre_ids[i]));
+          }
+        }
+        const genresByNames = temp.map(el => el.name).join(', ');
+
+        const movieEl = document.createElement('li');
+        movieEl.classList.add('card__item');
+
+        renderMovieCard(movieEl, id, poster_path, title, genresByNames, release_date, vote_average);
+        document.querySelector('.container__main').appendChild(movieEl);
+      });
     })
-    .catch(error => onInvalidSearchQuery());
+    .catch(error => console.log('oooooooops ', error));
 };
 
 const onInvalidSearchQuery = function () {
