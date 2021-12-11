@@ -6,7 +6,7 @@ const movieCard = document.querySelector('.container__main');
 movieCard.addEventListener('click', openMovieModal);
 
 function openMovieModal(e) {
-  if (!e.target.classList.contains('card__test')) {
+  if (e.target.closest('.card__item')?.querySelector('.picture') === undefined) {
     return;
   }
   e.preventDefault();

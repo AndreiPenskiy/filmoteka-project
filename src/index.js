@@ -10,9 +10,10 @@ import { searchFilms } from './js/search';
 import './js/modal-movie.js';
 import './js/my-library-header';
 import './js/translate.js'
+import './js/btn-theme';
+import './js/firebaseGoogleAuth';
 
-
-const trendingFilms = new filmsAPIService();
+export const trendingFilms = new filmsAPIService();
 trendingFilms.page = 3; //приклад використання для пагінації
 trendingFilms.language = 'en'; //приклад використання для локалізації
 

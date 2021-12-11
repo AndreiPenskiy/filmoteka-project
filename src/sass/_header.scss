@@ -89,7 +89,7 @@ body {
     transform: rotate(0deg);
   }
 }
-.lang{
+.lang {
   position: absolute;
   right: 30px;
   bottom: 0;
@@ -110,11 +110,10 @@ body {
 }
 .lang-site:hover .lang-site__link--other {
   visibility: visible;
-  
 }
 
- .lang-site__item:hover .link{
-  color: #FF6B08;
+.lang-site__item:hover .link {
+  color: #ff6b08;
 }
 
 .header {
@@ -126,13 +125,14 @@ body {
   width: 100%;
   height: 230px;
   padding-bottom: 97px;
+  padding-top: 46px;
   //   width: 320px;
   margin: 0 auto;
   position: relative;
 
   &__my-library {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url(../images/header__my-library/my-lib-header-mob.jpg);
+      url(../images/header__my-library/my-lib-header-mob.jpg);
   }
 }
 // dpr2 и 280px+
@@ -142,23 +142,23 @@ body {
   .header {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header/header-mob-2x.jpg);
-    
-      &__my-library {
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+
+    &__my-library {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header__my-library/my-lib-header-mob@2x.jpg);
-      }
+    }
   }
-  
 }
 .header__wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
 }
 .logo__list {
   display: flex;
   margin-bottom: 0;
   padding-left: 0;
-  padding-top: 46px;
+  
 }
 .logo__icon {
   animation-name: icon;
@@ -182,7 +182,7 @@ body {
 
 .navigation__list {
   display: flex;
-  padding-top: 57.4px;
+  // padding-top: 57.4px;
   margin-bottom: 40px;
   padding-left: 0;
 }
@@ -260,11 +260,9 @@ body {
 
     &__my-library {
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(../images/header__my-library/my-lib-header-tablet.jpg);
+        url(../images/header__my-library/my-lib-header-tablet.jpg);
     }
   }
-  
-
 
   // dpr2 и 768px
   @media (min-device-pixel-ratio: 2) and (min-width: 768px),
@@ -276,10 +274,9 @@ body {
 
       &__my-library {
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(../images/header__my-library/my-lib-header-tablet@2x.jpg);
+          url(../images/header__my-library/my-lib-header-tablet@2x.jpg);
       }
     }
-    
   }
 
   .logo__list {
@@ -291,6 +288,7 @@ body {
     padding-top: 9px;
     margin-bottom: 40px;
     padding-left: 0;
+    align-items: center;
   }
   .logotext__link {
     display: block;
@@ -315,10 +313,10 @@ body {
 
     &__my-library {
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(../images/header__my-library/my-lib-header-desktop.jpg);
+        url(../images/header__my-library/my-lib-header-desktop.jpg);
     }
   }
-  
+
   // dpr2 и 1024px
   @media (min-device-pixel-ratio: 2) and (min-width: 1024px),
     (min-resolution: 192dpi) and (min-width: 1024px),
@@ -329,7 +327,7 @@ body {
 
       &__my-library {
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(../images/header__my-library/my-lib-header-desktop@2x.jpg);
+          url(../images/header__my-library/my-lib-header-desktop@2x.jpg);
       }
     }
   }
@@ -342,4 +340,34 @@ body {
   font-size: 14px;
   line-height: 1.14;
   margin-top: 30px;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 5px;
+    text-align: left;
+    display: block;
+    width: 150px;
+  }
+}
+
+.user-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  margin-left: 10px;
+}
+
+.navigation__button.signOut {
+  display: none;
+}
+
+.navigation__button.signIn {
+  display: block;
+}
+
+.navigation__item.sign-in {
+  display: flex;
+}
+
+#googleUser {
+  margin-left: 10px;
 }
