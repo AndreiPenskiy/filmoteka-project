@@ -3,15 +3,12 @@
 }
 .footer-container{
     height: auto;
-    padding-top: 28.7px;
-    padding-bottom: 29.7px;
+    padding-top: 28px;
+    padding-bottom: 30px;
     @media screen and (min-width: 768px) {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding-top: 28px;
-        padding-bottom: 30px;
-
     }
 }
 .footer-text-wrapper {
