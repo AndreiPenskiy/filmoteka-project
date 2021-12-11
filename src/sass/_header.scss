@@ -118,7 +118,7 @@ body {
 
 .header {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url(../images/header/header-mob-1.jpg);
+    url(../images/header/header-mob@1.jpg);
   // background-color: #2a2a2a;
   background-size: cover;
   background-position: top;
@@ -141,7 +141,7 @@ body {
   (min-resolution: 2dppx) and (min-width: 280px) {
   .header {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(../images/header/header-mob-2x.jpg);
+      url(../images/header/header-mob@2x.jpg);
 
     &__my-library {
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
@@ -159,6 +159,9 @@ body {
   margin-bottom: 0;
   padding-left: 0;
   
+}
+.picture{
+  width: 100%;
 }
 .logo__icon {
   animation-name: icon;
@@ -250,10 +253,10 @@ body {
 }
 
 // tablet
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 321px) {
   .header {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(../images/header/header-tablet-1.jpg);
+      url(../images/header/header-tablet@1.jpg);
 
     padding-top: 48.4px;
     // width: 768px;
@@ -265,12 +268,12 @@ body {
   }
 
   // dpr2 и 768px
-  @media (min-device-pixel-ratio: 2) and (min-width: 768px),
-    (min-resolution: 192dpi) and (min-width: 768px),
-    (min-resolution: 2dppx) and (min-width: 768px) {
+  @media (min-device-pixel-ratio: 2) and (min-width: 321px),
+    (min-resolution: 192dpi) and (min-width: 321px),
+    (min-resolution: 2dppx) and (min-width: 321px) {
     .header {
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(../images/header/header-tablet-2x.jpg);
+        url(../images/header/header-tablet@2x.jpg);
 
       &__my-library {
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
@@ -290,24 +293,15 @@ body {
     padding-left: 0;
     align-items: center;
   }
-  .logotext__link {
-    display: block;
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 35px;
-    color: #ffffff;
-  }
+  
 
-  .input__wrapper {
-    width: 336px;
-    margin: 0 auto;
-  }
+  
 }
 //DESKTOP
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 769px) {
   .header {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(../images/header/header-desktop-1.jpg);
+      url(../images/header/header-desktop@1.jpg);
     background-position: top;
     // width: 1024px;
 
@@ -316,14 +310,25 @@ body {
         url(../images/header__my-library/my-lib-header-desktop.jpg);
     }
   }
+  .logotext__link {
+    display: block;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    color: #ffffff;
+  }
+  .input__wrapper {
+    width: 336px;
+    margin: 0 auto;
+  }
 
   // dpr2 и 1024px
-  @media (min-device-pixel-ratio: 2) and (min-width: 1024px),
-    (min-resolution: 192dpi) and (min-width: 1024px),
-    (min-resolution: 2dppx) and (min-width: 1024px) {
+  @media (min-device-pixel-ratio: 2) and (min-width: 768px),
+    (min-resolution: 192dpi) and (min-width: 768px),
+    (min-resolution: 2dppx) and (min-width: 768px) {
     .header {
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(../images/header/header-desktop-2x.jpg);
+        url(../images/header/header-desktop@2x.jpg);
 
       &__my-library {
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
