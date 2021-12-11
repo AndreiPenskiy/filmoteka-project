@@ -158,7 +158,6 @@ body {
   display: flex;
   margin-bottom: 0;
   padding-left: 0;
-  
 }
 .logo__icon {
   animation-name: icon;
@@ -185,6 +184,7 @@ body {
   // padding-top: 57.4px;
   margin-bottom: 40px;
   padding-left: 0;
+  align-items: center;
 }
 .navigation__item:not(:last-child) {
   margin-right: 39px;
