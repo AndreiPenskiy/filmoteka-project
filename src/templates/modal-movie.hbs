@@ -1,15 +1,27 @@
-<div class='modal-movie' id=''>
-  <div class='modal-movie__container'>
-    <picture class='modal-movie__cover'>
-      {{! <source srcset='images/modal-movie/movie-cover-desktop.jpg' media='(min-width: 1024px)' type='image/jpeg' />
-      <source srcset='images/modal-movie/movie-cover-tablet.jpg' media='(min-width: 768px)' type='image/jpeg' />
-      <source srcset='images/modal-movie/movie-cover-mobile.jpg' media='(max-width: 767.9px)' type='image/jpeg' />
-      <img src='images/modal-movie/movie-cover-mobile.jpg' alt='Movie cover' /> }}
-    </picture>
+<div class='modal-movie' data-id='{{id}}'>
+  <div class='modal-movie__poster'>
+    {{#if poster_path}}
+      <img
+        class='modal-movie__img'
+        src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+        alt='{{title}}'
+      />
+    {{else}}
+      <img
+        class='modal-movie__img'
+        src='https://raw.githubusercontent.com/AndreiPenskiy/filmoteka-project/main/src/images/modal-movie/no-poster-available.jpg'
+        alt='{{title}}'
+      />
+    {{/if}}
   </div>
 
-  <div class='modal-movie__container'>
-    <h2 class='modal-movie__title'>A FISTFUL OF LEAD</h2>
+  <div class='modal-movie__content'>
+    {{#if title}}
+      <h2 class='modal-movie__title'>{{title}}</h2>
+    {{else}}
+      <h2 class='modal-movie__title'>NO TITLE</h2>
+    {{/if}}
+
     <table class='modal-movie-info'>
       <tr>
         <td class='modal-movie-info__title'>Vote / Votes</td>
@@ -21,32 +33,40 @@
       </tr>
       <tr>
         <td class='modal-movie-info__title'>Popularity</td>
-        <td class='modal-movie-info__value'>100.2</td>
+        <td class='modal-movie-info__value'>{{popularity}}</td>
+      </tr>
+      <tr>
+        <td class='modal-movie-info__title'>Release</td>
+        <td class='modal-movie-info__value'>{{release_date}}</td>
       </tr>
       <tr>
         <td class='modal-movie-info__title'>Original Title</td>
-        <td class='modal-movie-info__value'>A FISTFUL OF LEAD</td>
+        <td class='modal-movie-info__value'>{{original_title}}</td>
       </tr>
       <tr>
         <td class='modal-movie-info__title'>Genre</td>
-        <td class='modal-movie-info__value'>Western</td>
+        <td class='modal-movie-info__value'>
+          {{#each genres}}
+            {{this.name}}
+          {{/each}}
+        </td>
       </tr>
     </table>
 
-    <h3 class='modal-movie-about__title'>About</h3>
-    <p class='modal-movie-about__desc'>
-      Four of the West’s most infamous outlaws assemble to steal a huge stash of gold from the most
-      corrupt settlement of the gold rush towns. But not all goes to plan one is killed and the
-      other three escapes with bags of gold hide out in the abandoned gold mine where they happen
-      across another gang of three – who themselves were planning to hit the very same bank! As
-      tensions rise, things go from bad to worse as they realise the bags of gold are filled with
-      lead... they’ve been double crossed – but by who and how?
-    </p>
-    <div class='modal-movie-btn-wrapper'>
-      <button class='modal-movie-btn btn-to-watched' type='button'>Add to watched</button>
-      <button class='modal-movie-btn btn-to-queue' type='button'>Add to queue</button>
+    <div class='modal-movie-about'>
+      <h3 class='modal-movie-about__title'>About</h3>
+      <p class='modal-movie-about__desc'>{{overview}}</p>
+    </div>
+
+    <div class='modal-movie-btn-wrapper' style='clear: both'>
+      <button class='modal-movie-btn btn-to-watched' type='button' data-action='btn-to-watched'>
+        Add to watched
+      </button>
+      <button class='modal-movie-btn btn-to-queue' type='button' data-action='btn-to-queue'>
+        Add to queue
+      </button>
     </div>
   </div>
 
-  <button class='modal-movie-btn-close' type='button' aria-label='close modal'></button>
+  <button class='modal-movie-close' type='button' aria-label='close modal'></button>
 </div>
