@@ -1,20 +1,20 @@
 import filmsAPIService from './api-service';
 
-const SingleFilmByID = new filmsAPIService();
+const singleFilmByID = new filmsAPIService();
 const headerLibrary = document.querySelector('.my-library__btn'); // кнопка навігації My library
 const main = document.querySelector('.container__main'); // main
 
 const IMG_URL = `https://image.tmdb.org/t/p/w500`;
 let singleGenre;
 
-headerLibrary.addEventListener('click', showTrendMov);
+headerLibrary.addEventListener('click', showLibrary);
 
 
 
 function showLibrary(event) {
     event.preventDefault();
 
-    SingleFilmByID.getSingleFilmByID
+    singleFilmByID.getSingleFilmByID
 
 
 
