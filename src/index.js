@@ -12,6 +12,7 @@ import './js/my-library-header';
 import './js/btn-theme';
 import './js/firebaseGoogleAuth';
 import './js/homepage-rendering';
+import './js/translate'
 
 export const trendingFilms = new filmsAPIService();
 trendingFilms.getAllGenres();
