@@ -4,6 +4,7 @@ export default class filmsAPIService {
   constructor() {
     this.currentPage = 1; // можна використовувати для пагінації
     this.lang = 'uk';
+    this.allGenres = [];
   }
 
   getTrendingFilms() {
@@ -28,6 +29,13 @@ export default class filmsAPIService {
     return axios.get(
       `https://api.themoviedb.org/3/genre/movie/list?api_key=daf1fe8995a61d2fecc007eaa464ca98&language=${this.lang}`,
     );
+  }
+
+  async getAllGenres() {
+    const genres = await axios.get(
+      `https://api.themoviedb.org/3/genre/movie/list?api_key=daf1fe8995a61d2fecc007eaa464ca98&language=${this.lang}`,
+    );
+    this.allGenres.push(...genres.data.genres);
   }
 
   get page() {

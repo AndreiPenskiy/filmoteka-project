@@ -14,6 +14,7 @@ import './js/firebaseGoogleAuth';
 import './js/homepage-rendering';
 
 export const trendingFilms = new filmsAPIService();
+trendingFilms.getAllGenres();
 trendingFilms.page = 3; //приклад використання для пагінації
 trendingFilms.language = 'en'; //приклад використання для локалізації
 
@@ -28,6 +29,6 @@ trendingFilms.getSingleFilmByID(497698).then(res => console.log('окремий 
 //приклад використання - ВСІ ЖАНРИ
 trendingFilms.getGenres().then(res => console.log('всі жанри', res.data));
 
-//РЕАЛІЗАЦІЯ ПОШУКУ (без рендерінгу розмітки)
+//РЕАЛІЗАЦІЯ ПОШУКУ
 const searchInput = document.querySelector('.search-form');
 searchInput.addEventListener('submit', searchFilms);
