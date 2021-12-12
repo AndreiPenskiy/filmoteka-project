@@ -154,7 +154,7 @@ function domI18n(options) {
     clearCachedElements: clearCachedElements
   };
 };
-const i18n = new domI18n({
+const i18n = domI18n({
 selector: '[data-translatable]',
 separator: ' // ',
 languages: ['en', 'uk', 'ru', 'pl'],
@@ -170,15 +170,12 @@ const input = document.getElementById('input');
 
 eng.addEventListener('click', evt => {
 evt.preventDefault();
-    i18n.changeLanguage('en');
-
+i18n.changeLanguage('en');
 });
 
 ukr.addEventListener('click', evt => {
 evt.preventDefault();
 i18n.changeLanguage('uk');
-
-
 });
 
 rus.addEventListener('click', evt => {
