@@ -1,34 +1,52 @@
 import modalMovieTemplate from '../templates/modal-movie.hbs';
 import * as basicLightbox from 'basiclightbox';
-import '../sass/main.scss';
+import api from './api-service';
 
+const newApi = new api();
 const movieCard = document.querySelector('.container__main');
-movieCard.addEventListener('click', openMovieModal);
+movieCard.addEventListener('click', onMovieCardClick);
 
-function openMovieModal(e) {
-  if (e.target.closest('.card__item')?.querySelector('.picture') === undefined) {
+///// Fetch movie by ID /////
+function fetchMovieData(filmID) {
+  return newApi.getSingleFilmByID(filmID).then(response => {
+    return response.data;
+  });
+}
+
+///// Click event listener /////
+function onMovieCardClick(e) {
+  e.preventDefault();
+  if (e.target.closest('.card__link')?.querySelector('card__poster') === undefined) {
     return;
   }
-  e.preventDefault();
 
-  const markup = modalMovieTemplate();
+  fetchMovieData(e.target.closest('.card__link').id)
+    .then(renderMovieModal)
+    .catch(error => {
+      console.log(error);
+    });
+}
+
+///// Render modal template /////
+function renderMovieModal(data) {
+  const markup = modalMovieTemplate(data);
   const modal = basicLightbox.create(markup);
   modal.show();
 
-  // Закрытие модалки по Кнопке
-  const closeBtn = document.querySelector('.modal-movie-btn-close');
-  closeBtn.addEventListener('click', closeModalBtn);
-  function closeModalBtn() {
+  // Close modal by Button
+  const closeBtn = document.querySelector('.modal-movie-close');
+  closeBtn.addEventListener('click', closeModalByBtn);
+  function closeModalByBtn() {
     modal.close();
-    window.removeEventListener('keydown', closeModalBtn);
+    window.removeEventListener('keydown', closeModalByBtn);
   }
 
-  // Закрытие модалки по Escape
-  window.addEventListener('keydown', closeModalHandler);
-  function closeModalHandler(e) {
+  // Close modal by Escape
+  window.addEventListener('keydown', closeModalByEsc);
+  function closeModalByEsc(e) {
     if (e.code === 'Escape') {
       modal.close();
-      window.removeEventListener('keydown', closeModalHandler);
+      window.removeEventListener('keydown', closeModalByEsc);
     }
   }
 }
