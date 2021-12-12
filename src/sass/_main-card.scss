@@ -101,3 +101,11 @@
     width: 274px;
   }
 }
+
+////////// Dark theme //////////
+
+body.body-theme {
+  .card__title {
+    color: #fff;
+  }
+}
