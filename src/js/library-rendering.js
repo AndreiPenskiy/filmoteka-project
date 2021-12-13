@@ -22,14 +22,13 @@ function showLibrary() {
     clear();             // Функция очиски сетки
     showBlankLibrary(); // Функция для разметки если библиотека пустая
     
-    // singleFilmByID.getSingleFilmByID(queueID).then(res =>
-   
+       
         
-    const movieEl = document.createElement('li');
-    movieEl.classList.add('card__item');
+    // const movieEl = document.createElement('li');
+    // movieEl.classList.add('card__item');
 
-    renderMovieCard(movieEl, id, poster_path, title, release_date, vote_average);
-    main.appendChild(movieEl);
+    // renderMovieCard(movieEl, id, poster_path, title, release_date, vote_average);
+    // main.appendChild(movieEl);
 };
 
 // Функция очиски сетки
@@ -62,16 +61,16 @@ function showBlankLibrary() {
 // };
 
 
-//  может надо бля части Василия
-//функция проверки наличия в "просмотренных" фильмов и создания массива если нету
-function isGetWatched() {
-  if (localStorage.getItem('watchedID')) return;
-  localStorage.setItem('watchedID', '[]');
-};
-//функция проверки наличия в "очереди" фильмов и создания массива если нету
-function isGetQueue() {
-  if (localStorage.getItem('queueID')) return;
-  localStorage.setItem('queueID', '[]');
-};
+// //  может надо бля части Василия
+// //функция проверки наличия в "просмотренных" фильмов и создания массива если нету
+// function isGetWatched() {
+//   if (localStorage.getItem('watchedID')) return;
+//   localStorage.setItem('watchedID', '[]');
+// };
+// //функция проверки наличия в "очереди" фильмов и создания массива если нету
+// function isGetQueue() {
+//   if (localStorage.getItem('queueID')) return;
+//   localStorage.setItem('queueID', '[]');
+// };
     
 
