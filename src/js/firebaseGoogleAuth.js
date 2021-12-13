@@ -1,6 +1,6 @@
 
 
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, FacebookAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 
 
 const firebaseConfig = {
@@ -46,13 +46,7 @@ function signinUser() {
 
 
 
-
-
-
-//const provider = new GoogleAuthProvider();
-
-
-/* function signinUser() {
+function signinUser() {
     const googleAuthProvider = new firebase.auth.GoogleAuthProvider;
     firebase.auth().signInWithPopup(googleAuthProvider)
         .then(function (data){
@@ -83,5 +77,4 @@ function signoutUser(){
           document.getElementById('googleUser').innerHTML = `
           <img class="user-img" src="${data.user.photoURL}">
         `
-} */
-      
+}
