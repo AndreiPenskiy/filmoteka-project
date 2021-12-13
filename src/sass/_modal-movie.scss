@@ -55,8 +55,15 @@
   }
 }
 
+///// Movie poster container /////
+
 .modal-movie__poster {
+  position: relative;
   display: inline-block;
+  height: min-content;
+  background: #000;
+  border-radius: 5px;
+
   @media screen and (max-width: 767.9px) {
     width: 100%;
     margin-bottom: 30px;
@@ -75,11 +82,48 @@
 .modal-movie__img {
   width: inherit;
   border-radius: 5px;
+  cursor: pointer;
+  transition: all var(--time) var(--timing-function);
 }
 
+.btn-trailer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 68px;
+  height: 48px;
+  background-color: transparent;
+  opacity: 0.8;
+  pointer-events: none;
+  transition: all var(--time) var(--timing-function);
+}
+
+.btn-trailer__path {
+  transition: all var(--time) var(--timing-function);
+}
+
+.modal-movie__poster:hover,
+.modal-movie__poster:focus {
+  .modal-movie__img {
+    opacity: 0.8;
+  }
+
+  .btn-trailer {
+    opacity: 1;
+  }
+
+  .btn-trailer__path {
+    fill: #f00;
+  }
+}
+
+///// Movie content container /////
+
 .modal-movie__content {
-  width: 100%;
   display: inline-block;
+  width: 100%;
+  height: max-content;
 }
 
 .modal-movie__title {
@@ -177,7 +221,6 @@
       margin-right: 15px;
     }
   }
-}
 
 .active {
   border: 1px solid var(--accent-color);
@@ -190,6 +233,12 @@
   background-color: var(--accent-color);
   border-color: var(--accent-color);
   color: var(--bg-main-color);
+  &:hover,
+  &:focus {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--bg-main-color);
+  }
 }
 
 .modal-movie-close {
@@ -269,3 +318,4 @@ body.body-theme {
 //     color: var(--txt-dark-theme);
 //   }
 // }
+}
