@@ -40,7 +40,7 @@ export const searchFilms = function (event) {
         document.querySelector('.container__main').appendChild(movieEl);
       });
     })
-    .catch(error => console.log('oooooooops ', error));
+    .catch(error => onInvalidSearchQuery());
 };
 
 const onInvalidSearchQuery = function () {
