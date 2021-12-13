@@ -222,19 +222,9 @@
     }
   }
 
-.active {
-  border: 1px solid var(--accent-color);
-  background: var(--accent-color);
-  padding: 0;
-}
-
-.modal-movie-btn:hover,
-.modal-movie-btn:focus {
-  background-color: var(--accent-color);
-  border-color: var(--accent-color);
-  color: var(--bg-main-color);
   &:hover,
-  &:focus {
+  &:focus,
+  &.active {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
     color: var(--bg-main-color);
@@ -280,7 +270,8 @@ body.body-theme {
     background-color: var(--bg-second-dark-theme);
     border: none;
     &:hover,
-    &:focus {
+    &:focus,
+    &.active {
       background-color: var(--accent-color);
     }
   }
@@ -305,7 +296,8 @@ body.body-theme {
 //   background-color: var(--bg-second-dark-theme);
 //   border: none;
 //   &:hover,
-//   &:focus {
+//   &:focus,
+//   &.active {
 //     background-color: var(--accent-color);
 //   }
 // }
@@ -318,4 +310,3 @@ body.body-theme {
 //     color: var(--txt-dark-theme);
 //   }
 // }
-}
