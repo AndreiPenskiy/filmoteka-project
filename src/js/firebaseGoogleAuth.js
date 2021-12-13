@@ -18,8 +18,8 @@ const logout = document.getElementById('signout').addEventListener('click', sign
 const provider = new FacebookAuthProvider();
 
 function signinUser() {
-    const facebookAuthProvider = new firebase.auth.provider;
-    firebase.auth().signInWithPopup(facebookAuthProvider)
+    const facebookProvider = new firebase.auth.FacebookAuthProvider();
+    firebase.auth().signInWithPopup(facebookProvider)
         .then(function (data){
           console.log(data)
           document.getElementById('signin').classList.add('signOut');
