@@ -15,19 +15,22 @@ firebase.initializeApp(firebaseConfig);
 const login = document.getElementById('signin').addEventListener('click', signinUser);
 const logout = document.getElementById('signout').addEventListener('click', signoutUser)
 
-const provider = new FacebookAuthProvider();
+
 
 function signinUser() {
-    const facebookProvider = new firebase.auth.FacebookAuthProvider();
-    firebase.auth().signInWithPopup(facebookProvider)
-        .then(function (data){
-          console.log(data)
-          document.getElementById('signin').classList.add('signOut');
+const provider = new FacebookAuthProvider();
+const auth = getAuth();
+    firebase.auth().signInWithPopup(auth, provider)
+  .then((result) => {
+    // The signed-in user info.
+    const user = result.user;
+    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+    const credential = FacebookAuthProvider.credentialFromResult(result);
+    const accessToken = credential.accessToken;
+    document.getElementById('signin').classList.add('signOut');
           document.getElementById('signout').classList.add('signIn');
-          //document.getElementById('googleUser').style.display = "block";
-            //renderGoogleUser(data);
-        })
-        .catch(function(error){
+    // ...
+  }).catch(function(error){
             console.log(error)
         })
     }
