@@ -1,6 +1,7 @@
 import modalMovieTemplate from '../templates/modal-movie.hbs';
 import * as basicLightbox from 'basiclightbox';
 import api from './api-service';
+import onTrailerClick from './trailer';
 
 const newApi = new api();
 const movieCard = document.querySelector('.container__main');
@@ -32,6 +33,8 @@ function renderMovieModal(data) {
   const markup = modalMovieTemplate(data);
   const modal = basicLightbox.create(markup);
   modal.show();
+
+  onTrailerClick();
 
   // Close modal by Button
   const closeBtn = document.querySelector('.modal-movie-close');
