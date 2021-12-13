@@ -47,13 +47,3 @@ function showBlankLibrary() {
     `;
     pagination.style.display = 'none';
 };
-
-// // Функция Юли для создания разметки карточки
-//   function renderMovieCard(element, id, poster_path, title, genre, release_date, vote_average) {
-//       element.innerHTML = `<a class="card__link" id = "${id}" href="#">
-//       <img src="${IMG_URL+poster_path}" alt ="${title}" class="card__poster">
-//       <h2 class="card__title">${title}</h2>
-//       <p class="card__description">${genre} | ${release_date.slice(0,4)}</p>
-//       <p class="card__rating">${vote_average}</p>
-//      </a>`
-// };
