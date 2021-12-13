@@ -15,10 +15,10 @@ firebase.initializeApp(firebaseConfig);
 const login = document.getElementById('signin').addEventListener('click', signinUser);
 const logout = document.getElementById('signout').addEventListener('click', signoutUser)
 
+const provider = new FacebookAuthProvider();
 
 function signinUser() {
-  const facebookProvider = new firebase.auth.FacebookAuthProvider();
-  firebase.auth().signInWithPopup(facebookProvider).then((res) => {
+  firebase.auth().signInWithPopup(provider).then((res) => {
       document.getElementById('signin').classList.add('signOut');
           document.getElementById('signout').classList.add('signIn');
       return res.user;
