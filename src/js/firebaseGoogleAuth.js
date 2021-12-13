@@ -1,5 +1,3 @@
-
-
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 
 
@@ -51,4 +49,3 @@ function signoutUser(){
           <img class="user-img" src="${data.user.photoURL}">
         `
 }
-       
