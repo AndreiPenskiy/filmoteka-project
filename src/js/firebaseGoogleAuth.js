@@ -12,24 +12,32 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-const login = document.getElementById('signin').addEventListener('click', signinUser);
+const login = document.getElementById('signin').addEventListener('click', signInWithPopup);
 const logout = document.getElementById('signout').addEventListener('click', signoutUser)
 
 const provider = new FacebookAuthProvider();
 
-function signinUser() {
-    const facebookProvider = new firebase.auth.FacebookAuthProvider;
-    firebase.auth().signInWithPopup(facebookProvider)
-        .then(function (data){
-          console.log(data)
-          document.getElementById('signin').classList.add('signOut');
-          document.getElementById('signout').classList.add('signIn');
-          //document.getElementById('googleUser').style.display = "block";
-        })
-        .catch(function(error){
-            console.log(error)
-        })
-    }
+const auth = getAuth();
+signInWithPopup(auth, provider)
+  .then((result) => {
+    // The signed-in user info.
+    const user = result.user;
+    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+    const credential = FacebookAuthProvider.credentialFromResult(result);
+    const accessToken = credential.accessToken;
+    // ...
+  })
+  .catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The AuthCredential type that was used.
+    const credential = FacebookAuthProvider.credentialFromError(error);
+
+    // ...
+  });
 
     function signoutUser(){
     firebase.auth().signOut().then(() => {
