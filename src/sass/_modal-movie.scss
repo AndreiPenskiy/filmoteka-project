@@ -179,6 +179,12 @@
   }
 }
 
+.active {
+  border: 1px solid var(--accent-color);
+  background: var(--accent-color);
+  padding: 0;
+}
+
 .modal-movie-btn:hover,
 .modal-movie-btn:focus {
   background-color: var(--accent-color);

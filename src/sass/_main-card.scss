@@ -1,11 +1,3 @@
-.library {
-  color: #ff6b08;
-  font-size: 24px;
-  text-align: center;
-  font-weight: 900;
-  margin-bottom: 10px;
-}
-
 .card__item {
   list-style-type: none;
   height: 440px;
@@ -99,13 +91,5 @@
 
   .card__poster {
     width: 274px;
-  }
-}
-
-////////// Dark theme //////////
-
-body.body-theme {
-  .card__title {
-    color: #fff;
   }
 }
