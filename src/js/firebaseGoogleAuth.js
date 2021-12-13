@@ -15,7 +15,33 @@ firebase.initializeApp(firebaseConfig);
 const login = document.getElementById('signin').addEventListener('click', signinUser);
 const logout = document.getElementById('signout').addEventListener('click', signoutUser)
 
-const provider = new GoogleAuthProvider();
+const provider = new FacebookAuthProvider();
+
+function signinUser() {
+  firebase.auth().signInWithPopup(provider).then((res) => {
+      document.getElementById('signin').classList.add('signOut');
+          document.getElementById('signout').classList.add('signIn');
+      return res.user;
+          //document.getElementById('signin').classList.add('signOut');
+          //document.getElementById('signout').classList.add('signIn');
+          //document.getElementById('googleUser').style.display = "block";
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+    }
+
+    function signoutUser(){
+    firebase.auth().signOut().then(() => {
+        console.log("Sign - out successful.");
+        document.getElementById('signin').classList.remove('signOut');
+      document.getElementById('signout').classList.remove('signIn');
+      //document.getElementById('googleUser').style.display = "none";
+    }).catch(error => {
+          console.log(error)
+        })
+      }
+
 
 
 function signinUser() {
@@ -50,4 +76,3 @@ function signoutUser(){
           <img class="user-img" src="${data.user.photoURL}">
         `
 }
-      
