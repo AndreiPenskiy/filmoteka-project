@@ -23,18 +23,16 @@ function showTrendMov(event) {
       const { title, poster_path, id, vote_average, genre_ids, release_date } = movie;
       // console.log(movie);
 
+      // Достаём названия жанров
       getGenreName(genre_ids);
-
-      const movieEl = document.createElement('li');
-      movieEl.classList.add('card__item');
-
-      renderMovieCard(movieEl, id, poster_path, title, singleGenre, release_date, vote_average);
-      main.appendChild(movieEl);
+      
+      // Делаем разметку страницы
+      renderMovieCard(id, poster_path, title, singleGenre, release_date, vote_average);
     }),
   );
 }
 
-// Сохраняем жанры в Loal Storage, достаем по id
+// Сохраняем жанры в Local Storage, достаем по id
 
 trendingFilms
   .getGenres()
@@ -51,7 +49,6 @@ function getGenreName(ids) {
 // Функция для создания разметки карточки
 
 export default function renderMovieCard(
-  element,
   id,
   poster_path,
   title,
@@ -59,12 +56,16 @@ export default function renderMovieCard(
   release_date,
   vote_average,
 ) {
-  element.innerHTML = `<a class="card__link" id = "${id}" href="#">
+  const movieEl = document.createElement('li');
+  movieEl.classList.add('card__item');
+
+  movieEl.innerHTML = `<a class="card__link" id = "${id}" href="#">
         <img src="${IMG_URL + poster_path}" alt ="${title}" class="card__poster">
         
             <h2 class="card__title">${title}</h2>
-            <p class="card__description">${genre.slice(0,2).join(', ')} | ${release_date.slice(0, 4)}</p>
+            <p class="card__description">${genre.slice(0, 2).join(', ')} | ${release_date.slice(0, 4)}</p>
             <p class="card__rating">${vote_average}</p>
         
         </a>`;
+  main.appendChild(movieEl);
 }
