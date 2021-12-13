@@ -22,11 +22,11 @@ function showLibrary() {
     clear();             // Функция очиски сетки
     showBlankLibrary(); // Функция для разметки если библиотека пустая
     
-    // const movieEl = document.createElement('li');
-    // movieEl.classList.add('card__item');
+    const movieEl = document.createElement('li');
+    movieEl.classList.add('card__item');
 
-    // renderMovieCard(movieEl, id, poster_path, title, release_date, vote_average);
-    // main.appendChild(movieEl);
+    renderMovieCard(movieEl, id, poster_path, title, release_date, vote_average);
+    main.appendChild(movieEl);
 };
 
 // Функция очиски сетки
