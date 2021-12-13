@@ -6,7 +6,7 @@ const homepageLogo = document.querySelector('.logo__list');
 const homeBtn = document.querySelector('.home__btn');
 const main = document.querySelector('.container__main');
 const IMG_URL = `https://image.tmdb.org/t/p/w500`;
-let singleGenre;
+let singleGenre = [];
 
 homepageLogo.addEventListener('click', showTrendMov);
 homeBtn.addEventListener('click', showTrendMov);
@@ -41,10 +41,11 @@ trendingFilms
   .then(res => res.data.genres.forEach(genre => localStorage.setItem(genre.id, genre.name)));
 
 function getGenreName(ids) {
+    singleGenre = [];
   ids.forEach(id => {
-    singleGenre = localStorage.getItem(id);
-    // console.log(singleGenre);
-  });
+    
+    singleGenre.push(localStorage.getItem(id));
+  })
 }
 
 // Функция для создания разметки карточки
@@ -62,7 +63,7 @@ export default function renderMovieCard(
         <img src="${IMG_URL + poster_path}" alt ="${title}" class="card__poster">
         
             <h2 class="card__title">${title}</h2>
-            <p class="card__description">${genre} | ${release_date.slice(0, 4)}</p>
+            <p class="card__description">${genre.slice(0,2).join(', ')} | ${release_date.slice(0, 4)}</p>
             <p class="card__rating">${vote_average}</p>
         
         </a>`;
