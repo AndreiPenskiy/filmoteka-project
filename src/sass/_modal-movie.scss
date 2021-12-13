@@ -222,7 +222,6 @@
     }
   }
 
-<<<<<<< HEAD
 .active {
   border: 1px solid var(--accent-color);
   background: var(--accent-color);
@@ -234,14 +233,12 @@
   background-color: var(--accent-color);
   border-color: var(--accent-color);
   color: var(--bg-main-color);
-=======
   &:hover,
   &:focus {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
     color: var(--bg-main-color);
   }
->>>>>>> 2f11a288ebe248f0e800cfda117a9683101b5510
 }
 
 .modal-movie-close {
@@ -321,3 +318,4 @@ body.body-theme {
 //     color: var(--txt-dark-theme);
 //   }
 // }
+}
