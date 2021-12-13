@@ -18,11 +18,11 @@ export const searchFilms = function (event) {
   trendingFilms
     .getFilmsByQuery(event.target.firstElementChild.value)
     .then(res => {
-      if (res.data.total_results === 0) {
-        trendingFilms.allPages = 0;
-        return error;
-      }
-      res.data.results.forEach(movie => {
+        if (res.data.total_results === 0) {
+          trendingFilms.allPages = 0;
+          return error;
+        }
+        res.data.results.forEach(movie => {
         const { title, poster_path, id, vote_average, genre_ids, release_date } = movie;
 
         const temp = [];
