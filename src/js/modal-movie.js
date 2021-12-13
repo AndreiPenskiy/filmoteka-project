@@ -2,6 +2,7 @@ import modalMovieTemplate from '../templates/modal-movie.hbs';
 import * as basicLightbox from 'basiclightbox';
 import api from './api-service';
 import { load, save, remove } from './localstorage';
+import onTrailerClick from './trailer';
 
 const newApi = new api();
 const movieCard = document.querySelector('.container__main');
@@ -72,7 +73,7 @@ function renderMovieModal(data) {
       }
       setTimeout(changeText, 1000);
     } else {
-    
+
       btnQueue.textContent = 'Add to queue';
       btnQueue.classList.remove('active');
       btnQueue.disabled = false;
@@ -183,6 +184,7 @@ function renderMovieModal(data) {
       }
     }
   }
+  onTrailerClick();
 
   // Close modal by Button
   const closeBtn = document.querySelector('.modal-movie-close');
