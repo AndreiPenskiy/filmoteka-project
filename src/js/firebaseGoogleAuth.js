@@ -18,13 +18,14 @@ const logout = document.getElementById('signout').addEventListener('click', sign
 const provider = new FacebookAuthProvider();
 
 function signinUser() {
-  firebase.auth().signInWithPopup(provider).then((res) => {
-      document.getElementById('signin').classList.add('signOut');
+    const facebookAuthProvider = new firebase.auth.provider;
+    firebase.auth().signInWithPopup(facebookAuthProvider)
+        .then(function (data){
+          console.log(data)
+          document.getElementById('signin').classList.add('signOut');
           document.getElementById('signout').classList.add('signIn');
-      return res.user;
-          //document.getElementById('signin').classList.add('signOut');
-          //document.getElementById('signout').classList.add('signIn');
           //document.getElementById('googleUser').style.display = "block";
+            //renderGoogleUser(data);
         })
         .catch(function(error){
             console.log(error)
