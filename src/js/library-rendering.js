@@ -22,8 +22,6 @@ function showLibrary() {
     clear();             // Функция очиски сетки
     showBlankLibrary(); // Функция для разметки если библиотека пустая
     
-       
-        
     // const movieEl = document.createElement('li');
     // movieEl.classList.add('card__item');
 
@@ -59,18 +57,3 @@ function showBlankLibrary() {
 //       <p class="card__rating">${vote_average}</p>
 //      </a>`
 // };
-
-
-// //  может надо бля части Василия
-// //функция проверки наличия в "просмотренных" фильмов и создания массива если нету
-// function isGetWatched() {
-//   if (localStorage.getItem('watchedID')) return;
-//   localStorage.setItem('watchedID', '[]');
-// };
-// //функция проверки наличия в "очереди" фильмов и создания массива если нету
-// function isGetQueue() {
-//   if (localStorage.getItem('queueID')) return;
-//   localStorage.setItem('queueID', '[]');
-// };
-    
-
