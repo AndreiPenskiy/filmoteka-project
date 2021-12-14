@@ -1,19 +1,19 @@
-import { trendingFilms } from '../index';
 import debounce from 'lodash.debounce';
-import renderMovieCard from './homepage-rendering';
+import { renderMovieCard, trendingFilms, getGenreName } from './homepage-rendering';
+let singleGenre = [];
+import nothingHereUrl from '../images/library/blank-cinema.jpg';
 
 export const searchFilms = function (event) {
   event.preventDefault();
+  trendingFilms.currentPage = 1;
+  trendingFilms.allPages = 1;
+  document.querySelector('.container__main').innerHTML = ' ';
 
   trendingFilms.searchQuery = event.target.firstElementChild.value;
   if (event.target.firstElementChild.value === ' ') {
     onInvalidSearchQuery();
     return;
   }
-
-  trendingFilms.currentPage = 1;
-  trendingFilms.allPages = 1;
-  document.querySelector('.container__main').innerHTML = ' ';
 
   trendingFilms
     .getFilmsByQuery(event.target.firstElementChild.value)
@@ -25,23 +25,22 @@ export const searchFilms = function (event) {
       res.data.results.forEach(movie => {
         const { title, poster_path, id, vote_average, genre_ids, release_date } = movie;
 
-        const temp = [];
-        if (genre_ids.length !== 0) {
-          for (let i = 0; i < genre_ids.length && i < 2; i += 1) {
-            temp.push(...trendingFilms.allGenres.filter(genre => genre.id === genre_ids[i]));
-          }
-        }
-        const genresByNames = temp.map(el => el.name).join(', ');
+        getGenreName(genre_ids);
 
-        const movieEl = document.createElement('li');
-        movieEl.classList.add('card__item');
-
-        renderMovieCard(movieEl, id, poster_path, title, genresByNames, release_date, vote_average);
-        document.querySelector('.container__main').appendChild(movieEl);
+        renderMovieCard(id, poster_path, title, singleGenre, release_date, vote_average);
       });
     })
-    .catch(error => onInvalidSearchQuery());
+    .catch(error => {
+      onInvalidSearchQuery();
+    });
 };
+
+// function getGenreName(ids) {
+//   singleGenre = [];
+//   ids.forEach(id => {
+//     singleGenre.push(localStorage.getItem(id));
+//   });
+// }
 
 const onInvalidSearchQuery = function () {
   const notification = `<p class="search-notification">
@@ -51,5 +50,9 @@ const onInvalidSearchQuery = function () {
   const removeNotification = debounce(() => {
     document.querySelector('.search-form').lastElementChild.remove();
   }, 2000);
+
+  document.querySelector(
+    '.container__main',
+  ).innerHTML = `<img src="${nothingHereUrl}" alt="blank cinema">`;
   removeNotification();
 };

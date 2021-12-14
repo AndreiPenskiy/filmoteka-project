@@ -1,6 +1,6 @@
 import filmsAPIService from './api-service';
 
-const trendingFilms = new filmsAPIService();
+export const trendingFilms = new filmsAPIService();
 
 const homepageLogo = document.querySelector('.logo__list');
 const homeBtn = document.querySelector('.home__btn');
@@ -25,7 +25,7 @@ function showTrendMov(event) {
 
       // Достаём названия жанров
       getGenreName(genre_ids);
-      
+
       // Делаем разметку страницы
       renderMovieCard(id, poster_path, title, singleGenre, release_date, vote_average);
     }),
@@ -38,17 +38,16 @@ trendingFilms
   .getGenres()
   .then(res => res.data.genres.forEach(genre => localStorage.setItem(genre.id, genre.name)));
 
-function getGenreName(ids) {
-    singleGenre = [];
+export const getGenreName = function (ids) {
+  singleGenre = [];
   ids.forEach(id => {
-    
     singleGenre.push(localStorage.getItem(id));
-  })
-}
+  });
+};
 
 // Функция для создания разметки карточки
 
-export default function renderMovieCard(
+export const renderMovieCard = function (
   id,
   poster_path,
   title,
@@ -63,9 +62,12 @@ export default function renderMovieCard(
         <img src="${IMG_URL + poster_path}" alt ="${title}" class="card__poster">
         
             <h2 class="card__title">${title}</h2>
-            <p class="card__description">${genre.slice(0, 2).join(', ')} | ${release_date.slice(0, 4)}</p>
+            <p class="card__description">${genre.slice(0, 2).join(', ')} | ${release_date.slice(
+    0,
+    4,
+  )}</p>
             <p class="card__rating">${vote_average}</p>
         
         </a>`;
   main.appendChild(movieEl);
-}
+};
