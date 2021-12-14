@@ -3,9 +3,7 @@ import './sass/main.scss';
 //import SimpleLightbox from 'simplelightbox';
 //import 'simplelightbox/dist/simple-lightbox.min.css';
 import Pagination from 'tui-pagination';
-// import { paginationOptions, pagination,page, } from './js/pagination';
 
-import {onPagination, initPagination} from './js/pagination';
 import filmsAPIService from './js/api-service';
 import { searchFilms } from './js/search';
 import './js/modal-movie.js';
@@ -44,9 +42,11 @@ const paginationOptions = {
         },
 };
 var pagination = new Pagination('pagination', paginationOptions);
+
 const page = pagination.getCurrentPage();
 console.log(page);
 trendingFilms.page = page;
+
 fetchImages(page).then(res => {
     pagination.reset(res.total_results);
     paginationOptions.totalItems = res.total_results;
@@ -61,12 +61,16 @@ pagination.on('afterMove', event => {
     
         // console.log(trendingFilms);
 
-        fetchImages(trendingFilms.page).then(res => {
+    fetchImages(trendingFilms.page).then(res => {
+            
             console.log(res);
+
             paginationOptions.totalItems = res.total_results;
             paginationOptions.page = res.page;
+
             console.log("paginationOptions = ", paginationOptions);
-            // showTrendMov();
+            
+            
         });
     
 
