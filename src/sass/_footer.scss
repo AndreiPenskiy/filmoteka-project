@@ -1,68 +1,66 @@
-.footer{
-    background-color: #F7F7F7;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-   
+.footer {
+  background-color: #f7f7f7;
+  width: 100%;
+  bottom: 0;
 }
-.footer-container{
-    height: auto;
-    padding-top: 28px;
-    padding-bottom: 30px;
-    @media screen and (min-width: 768px) {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.footer-container {
+  height: auto;
+  padding-top: 28px;
+  padding-bottom: 30px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 .footer-text-wrapper {
-    @media screen and (min-width: 320px) {
+  @media screen and (min-width: 320px) {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 10px;
-    }
-    @media screen and (min-width: 768px) {
-        // display: inline;
-        margin-bottom: 0px;
-        // text-align: center;
-    }
+  }
+  @media screen and (min-width: 768px) {
+    // display: inline;
+    margin-bottom: 0px;
+    // text-align: center;
+  }
 }
-.footer-text{
-    color: #545454;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
-    text-align: center;
+.footer-text {
+  color: #545454;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
 
-    @media screen and (min-width: 320px) {
-        &:first-child{
-            padding-right: 4px;
-        }
+  @media screen and (min-width: 320px) {
+    &:first-child {
+      padding-right: 4px;
     }
-    @media screen and (min-width: 768px) {
-        &:last-child{
-            padding-left: 4px;
-        }
-        &:first-child{
-            padding-right: 0px;
-        }
+  }
+  @media screen and (min-width: 768px) {
+    &:last-child {
+      padding-left: 4px;
     }
+    &:first-child {
+      padding-right: 0px;
+    }
+  }
 }
 
 .footer-heart-span {
-    color: #FF6B08;
-    font-size: 16px;
+  color: #ff6b08;
+  font-size: 16px;
 }
-.footer-team-link{
-    text-decoration: underline;
-    color: #545454;
-    &:hover,
-    &:focus{
-        text-shadow: #6b6f72 1px 0 10px;
-        color: #FF6B08;
-    }
+.footer-team-link {
+  text-decoration: underline;
+  color: #545454;
+  &:hover,
+  &:focus {
+    text-shadow: #6b6f72 1px 0 10px;
+    color: #ff6b08;
+  }
 }
