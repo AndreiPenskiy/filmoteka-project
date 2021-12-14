@@ -18,7 +18,7 @@ import './js/localstorage';
 import './js/library-rendering';
 import './js/render-lib';
 
-export const trendingFilms = new filmsAPIService();
+import { trendingFilms } from './js/homepage-rendering';
 trendingFilms.getAllGenres();
 trendingFilms.page = 3; //приклад використання для пагінації
 trendingFilms.language = 'en'; //приклад використання для локалізації
