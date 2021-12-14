@@ -1,5 +1,6 @@
 import debounce from 'lodash.debounce';
-
+import { trendingFilms } from './homepage-rendering';
+import nothingHereUrl from '../images/library/blank-cinema.jpg';
 const main = document.querySelector('.container__main');
 export const searchFilms = function (event) {
   event.preventDefault();
@@ -22,7 +23,6 @@ export const searchFilms = function (event) {
       }
       res.data.results.forEach(movie => {
         const { title, poster_path, id, vote_average, genre_ids, release_date } = movie;
-
 
         try {
           renderCardForSearch(movie);
