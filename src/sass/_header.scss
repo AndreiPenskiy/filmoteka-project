@@ -228,6 +228,7 @@ body {
   color: #fff;
 }
 .input__wrapper {
+  width: 280px;
   height: 20px;
   display: block;
   box-sizing: border-box;
@@ -280,6 +281,18 @@ body {
           url(../images/header__my-library/my-lib-header-tablet@2x.jpg);
       }
     }
+  }
+
+  .logotext__link {
+    display: block;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    color: #ffffff;
+  }
+  .input__wrapper {
+    width: 336px;
+    margin: 0 auto;
   }
 
   .logo__list {
