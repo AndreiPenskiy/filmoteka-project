@@ -41,3 +41,4 @@ function onQueueBtnClick() {
 }
 
 // add-to-watched/watched-btn
+export { onWatchedBtnClick, onQueueBtnClick };

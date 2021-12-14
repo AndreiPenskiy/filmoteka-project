@@ -16,6 +16,7 @@ import './js/translate';
 import './js/trailer';
 import './js/localstorage';
 import './js/library-rendering';
+import './js/render-lib';
 
 export const trendingFilms = new filmsAPIService();
 trendingFilms.getAllGenres();
