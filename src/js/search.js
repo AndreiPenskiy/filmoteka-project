@@ -28,19 +28,25 @@ export const searchFilms = function (event) {
         try {
           renderCardForSearch(movie);
         } catch (error) {
-          console.log('Only films with full info are shown');
+          // console.log('Only films with full info are shown');
         }
 
         return movie;
       });
     })
     .catch(error => {
-      console.log(error);
+      onInvalidSearchQuery();
     });
 };
 
 function renderCardForSearch(res) {
-  const poster_url = `src="https://www.themoviedb.org/t/p/w500/${res.poster_path}"`;
+  let poster_url;
+  if (!res.poster_path) {
+    poster_url = `src='https://image.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg'`;
+  } else {
+    poster_url = `src="https://www.themoviedb.org/t/p/w500/${res.poster_path}"`;
+  }
+
   let singleGenre = [];
   for (let i = 0; i < 2; i += 1) {
     singleGenre.push(localStorage.getItem(res.genre_ids[i]));
