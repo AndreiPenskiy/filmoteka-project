@@ -19,7 +19,7 @@ import './js/library-rendering';
 
 import { trendingFilms } from './js/homepage-rendering';
 trendingFilms.getAllGenres();
-trendingFilms.page = 3; //приклад використання для пагінації
+trendingFilms.page = 1; //приклад використання для пагінації
 trendingFilms.language = 'en'; //приклад використання для локалізації
 
 //ДАНІ З БЕКЕНДУ ДЛЯ ГОЛОВНОЇ СТОРІНКИ

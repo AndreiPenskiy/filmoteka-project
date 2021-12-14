@@ -1,88 +1,103 @@
 import Pagination from 'tui-pagination';
+import { trendingFilms } from './homepage-rendering';
+import './homepage-rendering';
+import { bodyTheme } from './btn-theme';
 
-
+console.log(trendingFilms);
 console.log('it`s working pagination');
 
-
-const paginationOptions = {
-    totalItemsValue:500,
-    itemsPerPageValue:20,
-    visiblePagesValue: 5,
-};
-
-const { totalItemsValue, itemsPerPageValue, visiblePagesValue } = paginationOptions;
+// export const trendingFilms = new filmsAPIService();
 
 
-const paginationObj = {
-    totalItems: `${totalItemsValue}`,
-    itemsPerPage: `${itemsPerPageValue}`,
-    visiblePages: `${visiblePagesValue}`,
+export const paginationOptions = {
+    totalItems: 0,
+    itemsPerPage: 20,
+    visiblePages: 5,
     page: 1,
 
         template: {
-            page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-            currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-            moveButton:
-                '<a href="#" class="tui-page-btn tui-{{type}} custom-class-{{type}}">' +
-                    '<span class="tui-ico-{{type}}">{{type}}</span>' +
+            page: '<a href="#" class="tui-page-btn color-day">{{page}}</a>',
+                currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+                    moveButton:
+            '<a href="#" class="tui-page-btn tui-{{type}} custom-class-{{type}} color-day">' +
+                '<span class="tui-ico-{{type}}">:::</span>' +
                 '</a>',
-            disabledMoveButton:
-                '<span class="tui-page-btn tui-is-disabled tui-{{type}} custom-class-{{type}}">' +
-                    '<span class="tui-ico-{{type}}">{{type}}</span>' +
+                disabledMoveButton:
+            '<span class="tui-page-btn tui-is-disabled tui-{{type}} custom-class-{{type}} color-day">' +
+                '<span class="tui-ico-{{type}}">:::</span>' +
                 '</span>',
-            moreButton:
-                '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip custom-class-{{type}}">' +
-                    '<span class="tui-ico-ellip"></span>' +
+                moreButton:
+            '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip custom-class-{{type}} color-day">...' +
+                '<span class="tui-ico-ellip"></span>' +
                 '</a>',
-    }
+        },
 };
 
-var pagination = new Pagination('pagination', paginationObj);
+console.log(paginationOptions, "paginationOptions START");
 
 
-//----------------------------------------------------------------------------
-//Selected Page in pagination block
-const paginationBlock = document.querySelector(".tui-pagination");
+export var pagination = new Pagination('pagination', paginationOptions);
 
-const takePageNumber = (event) => {
 
-    document.querySelector(".tui-ico-first").textContent = 1;
-    document.querySelector(".tui-ico-last").textContent = totalItemsValue/itemsPerPageValue;
+//Pagination first start with response from API and create total_pages
+//
+const page = pagination.getCurrentPage();
+console.log(page);
 
-    const takeSelectedNumber = document.querySelector(".tui-is-selected");
+fetchImages(page).then(res => {
+    pagination.reset(res.total_results);
+    paginationOptions.totalItems = res.total_results;
+    showTrendMov(event);
+    console.log("Here we'll make renderImages");
+});
 
-if (event.target.className.includes("tui-page-btn tui-is-disabled tui-prev custom-class-prev") || event.target.className.includes("tui-page-btn tui-is-disabled tui-next custom-class-next")) {
-    console.log(event.target.parentNode.className);
-    return;
-        }
 
- if ((event.target.className.includes("tui-ico-prev") && event.target.parentNode.className.includes("tui-page-btn tui-is-disabled tui-prev custom-class-prev")) || (event.target.className.includes("tui-ico-next") && event.target.parentNode.className.includes("tui-page-btn tui-is-disabled tui-next custom-class-next"))) {
-     console.log(event.target.parentNode.className);   
-     return;
-        }
+//Pagination change number of page, Fetch data and Render pages
+//
+pagination.on('afterMove', event => {
     
-    console.log(Number(takeSelectedNumber.textContent));
-    return  Number(takeSelectedNumber.textContent);
+    console.log(event);
+
+    const currentPage = event.page;
+    trendingFilms.page = currentPage;
+    
+    console.log(trendingFilms);
+
+    fetchImages(trendingFilms.page).then(res => {
+        console.log(res);
+        paginationOptions.totalItems = res.total_results;
+        paginationOptions.page = res.page;
+        console.log("paginationOptions = ", paginationOptions);
+        
+
+
+    });
+    
+
+});
+
+function fetchImages(page) {
+  
+    return trendingFilms.getTrendingFilms(page)
+        .then(res => ({ page: res.data.page, total_pages: res.data.total_pages, results: res.data.results, total_results: res.data.total_results }))
+    
+};
+    
+// console.log("res.data =", res.data.total_results)
+
+export function changePaginationTheme(paginationOptions) {
+    if (bodyTheme.className === 'body-theme') {
+        
+        console.log("paginationOptions", paginationOptions);
+        
+        
+    } else {
+        console.log("paginationOptions", paginationOptions);
+        
+     };   
 };
 
-let clickedPage = paginationBlock.addEventListener('click', takePageNumber);
-if (clickedPage !== undefined) {
-    console.log(clickedPage);
-}
-
-document.querySelector(".tui-ico-first").textContent = 1;
-document.querySelector(".tui-ico-last").textContent = totalItemsValue / itemsPerPageValue;
-
-//Change file "dist/tui-pagination.js" of tui.paganation
-
-// update: function(viewData) {
-//       this._empty();
-//       this._appendPrevButton(viewData);
-//       this._appendFirstButton(viewData);
-//       this._appendPrevMoreButton(viewData);
-//       this._appendPages(viewData);
-//       this._appendNextMoreButton(viewData);
-//       this._appendLastButton(viewData);
-//       this._appendNextButton(viewData);
-      
-//     }
+function renderImages(images) {
+  console.log('RENDER');
+  console.log(images);
+};

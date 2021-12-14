@@ -12,7 +12,7 @@ homepageLogo.addEventListener('click', showTrendMov);
 homeBtn.addEventListener('click', showTrendMov);
 window.addEventListener('load', showTrendMov);
 
-function showTrendMov(event) {
+export function showTrendMov(event) {
   event.preventDefault();
   document.querySelector('.search-form').firstElementChild.value = '';
   main.innerHTML = '';
