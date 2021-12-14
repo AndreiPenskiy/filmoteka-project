@@ -7,7 +7,7 @@ const API = new api();
 const myLibraryBtn = document.querySelector('.my-library__btn');
 const headerLibrary = document.querySelector('.header');
 const spinner = document.querySelector('.spinner');
-const gallery = document.querySelector('.container__main');
+const main = document.querySelector('.container__main');
 myLibraryBtn.addEventListener('click', renderPageLibrary);
 async function renderPageLibrary(event) {
   // if (headerLibrary.classList.contains('header__my-library')) {
@@ -28,7 +28,7 @@ async function renderPageLibrary(event) {
   btnQueueLib.addEventListener('click', renderQueue);
 }
 function renderWatched() {
-  gallery.innerHTML = ' ';
+  document.querySelector('.container__main').innerHTML = ' ';
   const arrId = load('watched');
   onWatchedBtnClick();
   if (!arrId || arrId.length === 0) {
@@ -42,7 +42,7 @@ function renderWatched() {
   }
 }
 function renderQueue() {
-  gallery.innerHTML = ' ';
+  document.querySelector('.container__main').innerHTML = ' ';
   const arrId = load('queue');
   onQueueBtnClick();
   if (!arrId || arrId.length === 0) {
@@ -56,7 +56,7 @@ function renderQueue() {
   }
 }
 function renderAllList() {
-  gallery.innerHTML = ' ';
+  document.querySelector('.container__main').innerHTML = ' ';
   let arrWatchId = [];
   let arrQueueId = [];
   if (load('watched')) {
@@ -98,5 +98,5 @@ function renderCardForLib(res, id) {
             <p class="card__rating">${res.vote_average}</p>
         
                 </a>`;
-  document.querySelector('.container__main').appendChild(movieEl);
+  main.appendChild(movieEl);
 }

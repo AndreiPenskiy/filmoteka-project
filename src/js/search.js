@@ -1,7 +1,7 @@
 import { trendingFilms } from '../index';
 import debounce from 'lodash.debounce';
-import renderMovieCard from './homepage-rendering';
 
+const main = document.querySelector('.container__main');
 export const searchFilms = function (event) {
   event.preventDefault();
 
@@ -13,7 +13,7 @@ export const searchFilms = function (event) {
 
   trendingFilms.currentPage = 1;
   trendingFilms.allPages = 1;
-  document.querySelector('.container__main').innerHTML = ` `;
+  document.querySelector('.container__main').innerHTML = ' ';
 
   trendingFilms
     .getFilmsByQuery(event.target.firstElementChild.value)
@@ -63,7 +63,7 @@ function renderCardForSearch(res) {
             <p class="card__rating">${res.vote_average}</p>
         
                 </a>`;
-  document.querySelector('.container__main').appendChild(movieEl);
+  main.appendChild(movieEl);
 }
 
 const onInvalidSearchQuery = function () {
