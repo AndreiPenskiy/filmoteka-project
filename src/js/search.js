@@ -75,4 +75,5 @@ const onInvalidSearchQuery = function () {
     document.querySelector('.search-form').lastElementChild.remove();
   }, 2000);
   removeNotification();
+  document.querySelector('.container__main').innerHTML = ' ';
 };
