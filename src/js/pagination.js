@@ -110,15 +110,7 @@ export function changePaginationTheme() {
     }
     };
 //--------------------------------------------------------------
-// changePaginationTheme();
-//--------------------------------------------------------------
-//FetchImages template
-//  export function fetchImages(page) {
-  
-//         return trendingFilms.getTrendingFilms(page)
-//             .then(res => ({ page: res.data.page, total_pages: res.data.total_pages, results: res.data.results, total_results: res.data.total_results }))
-    
-//     };
+
 //--------------------------------------------------------------
 
 // Возврат пагинации при клике на логотип/домашнюю страницу
