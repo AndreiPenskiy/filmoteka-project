@@ -18,6 +18,7 @@ export function showTrendMov(event) {
   event.preventDefault();
   document.querySelector('.search-form').firstElementChild.value = '';
   main.innerHTML = '';
+
   
   // console.log('щас буду рендерить фильмы');
 
