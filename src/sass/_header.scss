@@ -119,8 +119,11 @@ body {
 .header {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(../images/header/header-mob@1.jpg);
+    background-repeat: no-repeat;
+    background-color: black;
   // background-color: #2a2a2a;
-  background-size: cover;
+  // background-size: cover;
+  // background-size: auto 230px;
   background-position: top;
   width: 100%;
   height: 230px;
@@ -131,14 +134,24 @@ body {
   position: relative;
 
   &__my-library {
+    background-repeat: no-repeat;
+    background-color: black;
+    background-position: bottom;
+    width: 100%;
+    height: 230px;
+    padding-bottom: 97px;
+    padding-top: 46px;
+    margin: 0 auto;
+    position: relative;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header__my-library/my-lib-header-mob.jpg);
+   
   }
 }
 // dpr2 и 280px+
-@media (min-device-pixel-ratio: 2) and (min-width: 280px),
-  (min-resolution: 192dpi) and (min-width: 280px),
-  (min-resolution: 2dppx) and (min-width: 280px) {
+@media (min-device-pixel-ratio: 2) and (min-width: 320px),
+  (min-resolution: 192dpi) and (min-width: 320px),
+  (min-resolution: 2dppx) and (min-width: 320px) {
   .header {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header/header-mob@2x.jpg);
@@ -149,6 +162,8 @@ body {
     }
   }
 }
+
+
 .header__wrapper {
   display: flex;
   justify-content: space-between;
@@ -228,6 +243,7 @@ body {
   color: #fff;
 }
 .input__wrapper {
+  width: 280px;
   height: 20px;
   display: block;
   box-sizing: border-box;
@@ -253,8 +269,9 @@ body {
 }
 
 // tablet
-@media screen and (min-width: 321px) {
+@media screen and (min-width: 768px) {
   .header {
+    
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header/header-tablet@1.jpg);
 
@@ -268,18 +285,31 @@ body {
   }
 
   // dpr2 и 768px
-  @media (min-device-pixel-ratio: 2) and (min-width: 321px),
-    (min-resolution: 192dpi) and (min-width: 321px),
-    (min-resolution: 2dppx) and (min-width: 321px) {
+  @media (min-device-pixel-ratio: 2) and (min-width: 768px),
+    (min-resolution: 192dpi) and (min-width: 768px),
+    (min-resolution: 2dppx) and (min-width: 768px) {
     .header {
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/header-tablet@2x.jpg);
+        // background-position: top;
 
       &__my-library {
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
           url(../images/header__my-library/my-lib-header-tablet@2x.jpg);
       }
     }
+  }
+
+  .logotext__link {
+    display: block;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    color: #ffffff;
+  }
+  .input__wrapper {
+    width: 336px;
+    margin: 0 auto;
   }
 
   .logo__list {
@@ -298,16 +328,17 @@ body {
   
 }
 //DESKTOP
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 1024px) {
   .header {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header/header-desktop@1.jpg);
-    background-position: top;
+    // background-position: top;
     // width: 1024px;
 
     &__my-library {
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header__my-library/my-lib-header-desktop.jpg);
+        // background-position: top;
     }
   }
   .logotext__link {
@@ -323,16 +354,18 @@ body {
   }
 
   // dpr2 и 1024px
-  @media (min-device-pixel-ratio: 2) and (min-width: 768px),
-    (min-resolution: 192dpi) and (min-width: 768px),
-    (min-resolution: 2dppx) and (min-width: 768px) {
+  @media (min-device-pixel-ratio: 2) and (min-width: 1024px),
+    (min-resolution: 192dpi) and (min-width: 1024px),
+    (min-resolution: 2dppx) and (min-width: 1024px) {
     .header {
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/header-desktop@2x.jpg);
+        // background-position: top;
 
       &__my-library {
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
           url(../images/header__my-library/my-lib-header-desktop@2x.jpg);
+          // background-position: top;
       }
     }
   }

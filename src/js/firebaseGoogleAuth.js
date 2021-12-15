@@ -1,6 +1,5 @@
-
-
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyCUNUISB4BvcdddHlHx25A-P_y0LZzRomY",
@@ -50,4 +49,3 @@ function signoutUser(){
           <img class="user-img" src="${data.user.photoURL}">
         `
 }
-      
