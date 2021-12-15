@@ -5,7 +5,7 @@ export const trendingFilms = new filmsAPIService();
 
 const homepageLogo = document.querySelector('.logo__list');
 const homeBtn = document.querySelector('.home__btn');
-const main = document.querySelector('.card-list');
+const main = document.querySelector('.container__main');
 const IMG_URL = `https://image.tmdb.org/t/p/w500`;
 export let singleGenre = [];
 
@@ -18,7 +18,7 @@ export function showTrendMov(event) {
   event.preventDefault();
   document.querySelector('.search-form').firstElementChild.value = '';
   main.innerHTML = '';
-  trendingFilms.currentPage = 1;
+  
   // console.log('щас буду рендерить фильмы');
 
   trendingFilms.getTrendingFilms().then(res => {
