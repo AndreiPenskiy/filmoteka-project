@@ -123,7 +123,7 @@ export function changePaginationTheme() {
 
 // Возврат пагинации при клике на логотип/домашнюю страницу
 
-const logo = document.querySelector('.logo__list').addEventListener('click', onLogoClick);
+/* const logo = document.querySelector('.logo__list').addEventListener('click', onLogoClick);
 const home = document.querySelector('.home__btn').addEventListener('click', onHomeClick);
 
 function onLogoClick() {
@@ -132,4 +132,4 @@ function onLogoClick() {
 
 function onHomeClick() {
     document.getElementById('pagination').style.display = "block";
-};
+}; */
