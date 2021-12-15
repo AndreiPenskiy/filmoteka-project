@@ -12,6 +12,7 @@ import './js/btn-theme';
 import './js/firebaseGoogleAuth';
 import './js/homepage-rendering';
 import './js/translate';
+import './js/team';
 import './js/trailer';
 import './js/localstorage';
 import './js/library-rendering';
