@@ -12,6 +12,10 @@
   user-select: none;
 }
 
+.tui-page-btn.color-number {
+  color: white;
+}
+
 .tui-ico-ellipsis,
 .tui-ico-first,
 .tui-ico-last,
@@ -46,7 +50,6 @@
   line-height: 1.333;
   text-decoration: none;
   vertical-align: middle;
-
   //   border: 1px solid #ddd;
   //   border-width: 1px 0;
 }
