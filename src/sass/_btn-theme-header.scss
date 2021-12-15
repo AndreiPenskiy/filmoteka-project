@@ -1,91 +1,89 @@
 :root {
-	/* minFontSize + (maxFontSize - minFontSize) * (100vw - minVWidth)/(maxVWidth - minVWidth) */
-	font-size: calc(64px + (80 - 64) * (100vw - 320px)/(960 - 320));
+  /* minFontSize + (maxFontSize - minFontSize) * (100vw - minVWidth)/(maxVWidth - minVWidth) */
+  font-size: calc(64px + (80 - 64) * (100vw - 320px) / (960 - 320));
 }
 
-
-
-.body-theme{
-    background-color: #1d1917;
-    
+.body-theme {
+  background-color: #1d1917;
 }
 .tui-pagination .color-number {
-	color: #ffffff;
+  color: #ffffff;
 }
-.color-number{
-	color: #ffffff;
+.color-number {
+  color: #ffffff;
 }
-
 
 input {
-	display: block;
-	// margin-bottom: 1.5em;
+  display: block;
+  // margin-bottom: 1.5em;
 }
 main {
-	padding: 1.5em 0 0 0;
-	text-align: center;	
+  padding: 1.5em 0 0 0;
+  //   text-align: center;
 }
 .lyf {
-	background-color: rgba(0,0,0,0.7);
-	border-radius: 0.75em;
-	box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.3) inset;
-	color: #fdea7b;
-	display: inline-flex;
-	align-items: center;
-	margin: auto;
-	padding: 0.15em;
-	width: 3em;
-	height: 1.5em;
-	transition: background-color 0.1s 0.3s ease-out, box-shadow 0.1s 0.3s ease-out;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	position: absolute;
-    right: 80px;
-    bottom: 36px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 0.75em;
+  box-shadow: 0.125em 0.125em 0 0.125em rgba(0, 0, 0, 0.3) inset;
+  color: #fdea7b;
+  display: inline-flex;
+  align-items: center;
+  margin: auto;
+  padding: 0.15em;
+  width: 3em;
+  height: 1.5em;
+  transition: background-color 0.1s 0.3s ease-out, box-shadow 0.1s 0.3s ease-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+  right: 80px;
+  bottom: 36px;
 }
-.lyf:before, .lyf:after {
-	content: "";
-	display: block;
+.lyf:before,
+.lyf:after {
+  content: '';
+  display: block;
 }
 .lyf:before {
-	background-color: #d7d7d7;
-	border-radius: 50%;
-	width: 1.2em;
-	height: 1.2em;
-	transition: background-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
-	z-index: 1;
+  background-color: #d7d7d7;
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+  transition: background-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+  z-index: 1;
 }
 .lyf:after {
-	background:
-		linear-gradient(transparent 50%, rgba(0,0,0,0.15) 0) 0 50% / 50% 100%,
-		repeating-linear-gradient(90deg,#bbb 0,#bbb,#bbb 20%,#999 20%,#999 40%) 0 50% / 50% 100%,
-		radial-gradient(circle at 50% 50%,#888 25%, transparent 26%);
-	background-repeat: no-repeat;
-	border: 0.25em solid transparent;
-	border-left: 0.4em solid #d8d8d8;
-	border-right: 0 solid transparent;
-	transition: border-left-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
-	transform: translateX(-22.5%);
-	transform-origin: 25% 50%;
-	width: 1.2em;
-	height: 1em;
+  background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.15) 0) 0 50% / 50% 100%,
+    repeating-linear-gradient(90deg, #bbb 0, #bbb, #bbb 20%, #999 20%, #999 40%) 0 50% / 50% 100%,
+    radial-gradient(circle at 50% 50%, #888 25%, transparent 26%);
+  background-repeat: no-repeat;
+  border: 0.25em solid transparent;
+  border-left: 0.4em solid #d8d8d8;
+  border-right: 0 solid transparent;
+  transition: border-left-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+  transform: translateX(-22.5%);
+  transform-origin: 25% 50%;
+  width: 1.2em;
+  height: 1em;
 }
 /* Checked */
 .lyf:checked {
-	background-color: rgba(0,0,0,0.45);
-	box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.1) inset;
+  background-color: rgba(0, 0, 0, 0.45);
+  box-shadow: 0.125em 0.125em 0 0.125em rgba(0, 0, 0, 0.1) inset;
 }
+
 .lyf:checked:before {
-	background-color: currentColor;
-	transform: translateX(125%)
+  background-color: currentColor;
+  transform: translateX(125%);
 }
 .lyf:checked:after {
-	border-left-color: currentColor;
-	transform: translateX(-2.5%) rotateY(180deg);
+  border-left-color: currentColor;
+  transform: translateX(-2.5%) rotateY(180deg);
 }
+
 /* Other States */
 .lyf:focus {
-	/* Usually an anti-A11Y practice but set to remove an annoyance just for this demo */
-	outline: 0;
+  /* Usually an anti-A11Y practice but set to remove an annoyance just for this demo */
+  outline: 0;
 }

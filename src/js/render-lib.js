@@ -79,8 +79,8 @@ function renderAllList() {
 // РОЗМІТКА
 function showBlankLibrary() {
   main.innerHTML = ` <a>
-      <p class="library"> There are no films in the library yet !</p>
-      <img src="${nothingHereUrl}" alt="blank cinema">
+      <p class="library__text"> There are no films yet !</p>
+      <img class="library__picture" src="${nothingHereUrl}" alt="blank cinema">
     </a>
   `;
   pagination.style.display = 'none';

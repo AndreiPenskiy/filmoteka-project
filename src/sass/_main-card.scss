@@ -1,9 +1,14 @@
-.library {
+.library__text {
   color: #ff6b08;
   font-size: 24px;
   text-align: center;
   font-weight: 900;
   margin-bottom: 10px;
+}
+
+.library__picture {
+  width: 274px;
+  height: auto;
 }
 
 .card__item {
@@ -36,15 +41,18 @@
   text-transform: uppercase;
   margin-top: 10px;
   font-size: 12px;
+  font-weight: 500;
   line-height: 1.33;
+  text-align: start;
 }
 
 .card__description {
   display: inline;
+  text-align: start;
+
   font-size: 12px;
   line-height: 1.33;
   color: #ff6b08;
-  /* color: var(--accent-color); */
 }
 
 .card__rating {
@@ -88,6 +96,10 @@
   .card__poster {
     width: 294px;
   }
+
+  .library__picture {
+    width: 400px;
+  }
 }
 
 // *********************** DESKTOP ********************
@@ -99,6 +111,10 @@
 
   .card__poster {
     width: 274px;
+  }
+
+  .library__picture {
+    width: auto;
   }
 }
 
