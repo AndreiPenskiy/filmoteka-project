@@ -271,14 +271,13 @@ body {
 // tablet
 @media screen and (min-width: 768px) {
   .header {
-    
+    padding-top: 41px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header/header-tablet@1.jpg);
-
-    padding-top: 48.4px;
     // width: 768px;
 
     &__my-library {
+      padding-top: 41px;
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header__my-library/my-lib-header-tablet.jpg);
     }
@@ -319,7 +318,7 @@ body {
   }
   .navigation__list {
     padding-top: 9px;
-    margin-bottom: 40px;
+    margin-bottom: 41px;
     padding-left: 0;
     align-items: center;
   }
@@ -336,6 +335,7 @@ body {
     // width: 1024px;
 
     &__my-library {
+
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header__my-library/my-lib-header-desktop.jpg);
         // background-position: top;
