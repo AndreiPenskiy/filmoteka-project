@@ -2,6 +2,7 @@ import debounce from 'lodash.debounce';
 import { trendingFilms } from './homepage-rendering';
 import nothingHereUrl from '../images/library/blank-cinema.jpg';
 const main = document.querySelector('.container__main');
+
 export const searchFilms = function (event) {
   event.preventDefault();
   trendingFilms.currentPage = 1;
@@ -75,7 +76,7 @@ const onInvalidSearchQuery = function () {
 
   document.querySelector(
     '.container__main',
-  ).innerHTML = `<img src="${nothingHereUrl}" alt="blank cinema">`;
+  ).innerHTML = `<img src="${nothingHereUrl}" alt="blank cinema" width=320>`;
+
   removeNotification();
-  document.querySelector('.container__main').innerHTML = ' ';
 };
