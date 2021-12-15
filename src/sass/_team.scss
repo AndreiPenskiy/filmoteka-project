@@ -69,16 +69,17 @@
 }
 .button {
   position: absolute;
-}
-.close-icon {
   position: absolute;
   right: 10px;
-  top: 10px;
+  top: 15px;
   font-size: 20px;
   color: black;
   stroke: 4px;
-  width: 30px;
+  width: 35px;
   height: 30px;
+  &:hover {
+    color: #ff6b08;
+  }
 }
 
 .team__list {

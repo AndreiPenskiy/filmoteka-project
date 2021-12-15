@@ -1,17 +1,15 @@
 
-function showModal() {
-  const darkLayer = document.createElement('div'); // слой затемнения
-  darkLayer.id = 'shadow'; // id чтобы подхватить стиль
-  document.body.appendChild(darkLayer); // включаем затемнение
-
-  const modalWin = document.getElementById('popup'); // находим наше "окно"
-  modalWin.style.display = 'block'; // "включаем" его
-
-  darkLayer.onclick = function() { // при клике на слой затемнения все исчезнет
-    darkLayer.parentNode.removeChild(darkLayer); // удаляем затемнение
-    modalWin.style.display = 'none'; // делаем окно невидимым
-    return false;
-  };
-}
-
-showModal.addEventListener("click", showModal);
+(() => {
+    const refs = {
+      openModalBtn: document.querySelector('[data-modal-open]'),
+      closeModalBtn: document.querySelector('[data-modal-close]'),
+      modal: document.querySelector('[data-modal]'),
+    };
+  
+    refs.openModalBtn.addEventListener('click', toggleModal);
+    refs.closeModalBtn.addEventListener('click', toggleModal);
+  
+    function toggleModal() {
+      refs.modal.classList.toggle('is-hidden');
+    }
+  })();
