@@ -1,24 +1,33 @@
 import filmsAPIService from './api-service';
-
+import Pagination from 'tui-pagination';
+import { pagination, paginationPage, creatingTotalResultsPagination, paginationChangePageShowTrend} from './pagination';
 export const trendingFilms = new filmsAPIService();
 
 const homepageLogo = document.querySelector('.logo__list');
 const homeBtn = document.querySelector('.home__btn');
 const main = document.querySelector('.container__main');
 const IMG_URL = `https://image.tmdb.org/t/p/w500`;
-let singleGenre = [];
+export let singleGenre = [];
 
 homepageLogo.addEventListener('click', showTrendMov);
 homeBtn.addEventListener('click', showTrendMov);
 window.addEventListener('load', showTrendMov);
+    
 
-function showTrendMov(event) {
+export function showTrendMov(event) {
   event.preventDefault();
   document.querySelector('.search-form').firstElementChild.value = '';
   main.innerHTML = '';
+  
   // console.log('щас буду рендерить фильмы');
 
-  trendingFilms.getTrendingFilms().then(res =>
+  trendingFilms.getTrendingFilms().then(res => {
+    //Pagination creating total pages with rendering Main Page
+    //Pagination init and check
+    trendingFilms.page = paginationPage;
+    creatingTotalResultsPagination(res),
+    //Pagination End in this module
+      
     res.data.results.forEach(movie => {
       const { title, poster_path, id, vote_average, genre_ids, release_date } = movie;
       // console.log(movie);
@@ -28,9 +37,12 @@ function showTrendMov(event) {
 
       // Делаем разметку страницы
       renderMovieCard(id, poster_path, title, singleGenre, release_date, vote_average);
-    }),
+    })}
   );
-}
+};
+
+//Pagination and rendering of total pages
+paginationChangePageShowTrend();
 
 // Сохраняем жанры в Local Storage, достаем по id
 
