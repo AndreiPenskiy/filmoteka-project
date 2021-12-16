@@ -1,3 +1,9 @@
+import filmsAPIService from './api-service';
+
+const api = new filmsAPIService();
+
+let language = '';
+
 function domI18n(options) {
   
   options = options || {};
@@ -42,7 +48,8 @@ function domI18n(options) {
       }
       lang = defaultLanguage;
     }
-
+    console.log(lang)
+    language = lang;
     return lang;
   }
 
@@ -142,7 +149,7 @@ function domI18n(options) {
     var elems = (typeof selector == 'string' || selector instanceof String) ?
       rootElement.querySelectorAll(selector) :
       selector;
-    for (var i = 0; i < elems.length; ++i) {
+    for (let i = 0; i < elems.length; ++i) {
       translateElement(elems[i]);
     }
   }
@@ -168,26 +175,30 @@ const pol = document.getElementById('pl');
 const input = document.getElementById('input');
 
 
-eng.addEventListener('click', evt => {
+  eng.addEventListener('click', evt => {
 evt.preventDefault();
 i18n.changeLanguage('en');
+console.log(language)
+api.language = `${language}`
 });
 
 ukr.addEventListener('click', evt => {
 evt.preventDefault();
 i18n.changeLanguage('uk');
+api.language = `${language}`
 });
 
 rus.addEventListener('click', evt => {
 evt.preventDefault();
 i18n.changeLanguage('ru');
-
+api.language = `${language}`
 });
 
 pol.addEventListener('click', evt => {
 evt.preventDefault();
 i18n.changeLanguage('pl');
-
+api.language = `${language}`
 });
 
+export {language}
 
