@@ -1,4 +1,7 @@
-import modalMovieTemplate from '../templates/modal-movie.hbs';
+import modalMovieTemplateEN from '../templates/modal-movie-en.hbs';
+import modalMovieTemplateUK from '../templates/modal-movie-uk.hbs';
+import modalMovieTemplateRU from '../templates/modal-movie-ru.hbs';
+import modalMovieTemplatePL from '../templates/modal-movie-pl.hbs';
 import * as basicLightbox from 'basiclightbox';
 import api from './api-service';
 import { load, save, remove } from './localstorage';
@@ -7,6 +10,7 @@ import onTrailerClick from './trailer';
 const newApi = new api();
 const movieCard = document.querySelector('.container__main');
 movieCard.addEventListener('click', onMovieCardClick);
+const html = document.querySelector('html');
 
 ///// Fetch movie by ID /////
 function fetchMovieData(filmID) {
@@ -31,9 +35,43 @@ function onMovieCardClick(e) {
 
 ///// Render modal template /////
 function renderMovieModal(data) {
-  const markup = modalMovieTemplate(data);
+  let markup;
+  const currentLang = html.getAttribute('lang');
+
+  if (currentLang === 'uk') {
+    markup = modalMovieTemplateUK(data);
+  } else if (currentLang === 'ru') {
+    markup = modalMovieTemplateRU(data);
+  } else if (currentLang === 'pl') {
+    markup = modalMovieTemplatePL(data);
+  } else {
+    markup = modalMovieTemplateEN(data);
+  }
+
+  // const markup = modalMovieTemplate(data);
   const modal = basicLightbox.create(markup);
   modal.show();
+
+  onTrailerClick();
+
+  // Close modal by Button
+  const closeBtn = document.querySelector('.modal-movie-close');
+  closeBtn.addEventListener('click', closeModalByBtn);
+  function closeModalByBtn() {
+    modal.close();
+    window.removeEventListener('keydown', closeModalByBtn);
+  }
+
+  // Close modal by Escape
+  window.addEventListener('keydown', closeModalByEsc);
+  function closeModalByEsc(e) {
+    if (e.code === 'Escape') {
+      modal.close();
+      window.removeEventListener('keydown', closeModalByEsc);
+    }
+  }
+
+  ///// Init buttons 'Watched' and 'Queue' /////
 
   const btnQueue = document.querySelector('.btn-to-queue');
   const btnWatch = document.querySelector('.btn-to-watched');
@@ -45,36 +83,63 @@ function renderMovieModal(data) {
     const btnQueue = document.querySelector('.btn-to-queue');
     const btnWatch = document.querySelector('.btn-to-watched');
     if (inList(id, 'watched')) {
-
-      btnWatch.textContent = 'Added to watched';
-      btnWatch.disabled = true;
+      // btnWatch.textContent = 'Added to watched';
+      // btnWatch.disabled = true;
       function changeText() {
+        if (currentLang === 'uk') {
+          btnWatch.textContent = 'Видалити з переглянутих';
+        } else if (currentLang === 'ru') {
+          btnWatch.textContent = 'Удалить из просмотренных';
+        } else if (currentLang === 'pl') {
+          btnWatch.textContent = 'Usuń z obejrzane';
+        } else {
+          btnWatch.textContent = 'Remove from watched';
+        }
         btnWatch.disabled = false;
-        btnWatch.textContent = 'Remove from watched';
         btnWatch.classList.add('active');
       }
-      setTimeout(changeText, 1000);
+      setTimeout(changeText, 200);
     } else {
-
-      btnWatch.textContent = 'Add to watched';
+      if (currentLang === 'uk') {
+        btnWatch.textContent = 'Додати до переглянутих';
+      } else if (currentLang === 'ru') {
+        btnWatch.textContent = 'Добавить в просмотренные';
+      } else if (currentLang === 'pl') {
+        btnWatch.textContent = 'Dodaj do obejrzane';
+      } else {
+        btnWatch.textContent = 'Add to watched';
+      }
       btnWatch.classList.remove('active');
-
       btnWatch.disabled = false;
     }
 
     if (inList(id, 'queue')) {
-
-      btnQueue.textContent = 'Added to queue';
-      btnQueue.disabled = true;
+      // btnQueue.textContent = 'Added to queue';
+      // btnQueue.disabled = true;
       function changeText() {
+        if (currentLang === 'uk') {
+          btnQueue.textContent = 'Видалити з черги';
+        } else if (currentLang === 'ru') {
+          btnQueue.textContent = 'Удалить из очереди';
+        } else if (currentLang === 'pl') {
+          btnQueue.textContent = 'Usuń z kolejki';
+        } else {
+          btnQueue.textContent = 'Remove from queue';
+        }
         btnQueue.disabled = false;
-        btnQueue.textContent = 'Remove from queue';
         btnQueue.classList.add('active');
       }
-      setTimeout(changeText, 1000);
+      setTimeout(changeText, 200);
     } else {
-
-      btnQueue.textContent = 'Add to queue';
+      if (currentLang === 'uk') {
+        btnQueue.textContent = 'Додати до черги';
+      } else if (currentLang === 'ru') {
+        btnQueue.textContent = 'Добавить в очередь';
+      } else if (currentLang === 'pl') {
+        btnQueue.textContent = 'Dodaj do kolejki';
+      } else {
+        btnQueue.textContent = 'Add to queue';
+      }
       btnQueue.classList.remove('active');
       btnQueue.disabled = false;
     }
@@ -182,24 +247,6 @@ function renderMovieModal(data) {
         save('queue', queueList);
         textModalBtn(id);
       }
-    }
-  }
-  onTrailerClick();
-
-  // Close modal by Button
-  const closeBtn = document.querySelector('.modal-movie-close');
-  closeBtn.addEventListener('click', closeModalByBtn);
-  function closeModalByBtn() {
-    modal.close();
-    window.removeEventListener('keydown', closeModalByBtn);
-  }
-
-  // Close modal by Escape
-  window.addEventListener('keydown', closeModalByEsc);
-  function closeModalByEsc(e) {
-    if (e.code === 'Escape') {
-      modal.close();
-      window.removeEventListener('keydown', closeModalByEsc);
     }
   }
 }
