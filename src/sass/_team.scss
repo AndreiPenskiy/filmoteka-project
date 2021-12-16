@@ -185,3 +185,12 @@
     display: none;
   }
 }
+
+////////// Dark theme //////////
+
+body.body-theme {
+  .popup__content {
+    background-color: #333;
+    color: #fff;
+  }
+}
