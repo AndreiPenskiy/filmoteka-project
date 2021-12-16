@@ -81,10 +81,15 @@ function renderAllList() {
 
 // РОЗМІТКА
 function showBlankLibrary() {
-  main.innerHTML = ` <a>
+  main.innerHTML = 
+    `
+  <li></li>
+  <li>
+   <a>
       <p class="library__text"> There are no films yet !</p>
       <img class="library__picture" src="${nothingHereUrl}" alt="blank cinema">
     </a>
+    </li>
   `;
   pagination.style.display = 'none';
 }
