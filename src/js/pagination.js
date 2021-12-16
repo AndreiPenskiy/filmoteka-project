@@ -61,9 +61,9 @@ export function paginationChangePageShowTrend() {
         // Rendering
         trendingFilms.getTrendingFilms().then(res => {
             //Pagination creating total pages with rendering Main Page
-            console.log(res.data);
-            console.log("paginationOptions = ", paginationOptions)
-                ,
+            //console.log(res.data);
+            //console.log("paginationOptions = ", paginationOptions)
+                
                 res.data.results.forEach(movie => {
                     const { title, poster_path, id, vote_average, genre_ids, release_date } = movie;
                     // console.log(movie);
@@ -89,7 +89,7 @@ export function changePaginationTheme() {
         for (const variable of tuiElement.children) {
             variable.className = variable.className + ' color-number';
         }
-        console.log(tuiElement.children);
+        //console.log(tuiElement.children);
 
         pagination.on('afterMove', event => {
             
@@ -106,7 +106,7 @@ export function changePaginationTheme() {
             variable.classList.remove('color-number');
         }
         });
-        console.log(tuiElement.children);
+        //console.log(tuiElement.children);
     }
     };
 //--------------------------------------------------------------

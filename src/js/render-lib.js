@@ -41,6 +41,7 @@ function renderWatched() {
     }
   }
 }
+
 function renderQueue() {
   document.querySelector('.container__main').innerHTML = ' ';
   const arrId = load('queue');
@@ -55,6 +56,7 @@ function renderQueue() {
     }
   }
 }
+
 function renderAllList() {
   document.querySelector('.container__main').innerHTML = ' ';
   let arrWatchId = [];
@@ -76,6 +78,7 @@ function renderAllList() {
     }
   }
 }
+
 // РОЗМІТКА
 function showBlankLibrary() {
   main.innerHTML = ` <a>
@@ -85,6 +88,7 @@ function showBlankLibrary() {
   `;
   pagination.style.display = 'none';
 }
+
 function renderCardForLib(res, id) {
   const poster_url = `src="https://www.themoviedb.org/t/p/w500/${res.poster_path}"`;
   const genres = res.genres[0].name;
