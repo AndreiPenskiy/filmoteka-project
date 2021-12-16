@@ -2,7 +2,7 @@ import debounce from 'lodash.debounce';
 import Pagination from 'tui-pagination';
 import { trendingFilms } from './homepage-rendering';
 import nothingHereUrl from '../images/library/blank-cinema.jpg';
-import { pagination } from './pagination';
+import { pagination, paginationSearchFilms } from './pagination';
 const main = document.querySelector('.container__main');
 
 console.log(pagination);
@@ -28,6 +28,7 @@ export const searchFilms = function (event) {
         return error;
       };
       console.log(res.data);
+      paginationSearchFilms(res);
       // pagination.reset(res.data.total_results);
       res.data.results.forEach(movie => {
         const { title, poster_path, id, vote_average, genre_ids, release_date } = movie;
@@ -87,3 +88,4 @@ const onInvalidSearchQuery = function () {
 
   removeNotification();
 };
+

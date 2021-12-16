@@ -15,8 +15,8 @@ function saveTheme () {
     if (theme === "dark") {
         bodyTheme.classList.add('body-theme');
         checked.setAttribute('checked', true);
-        changePaginationTheme();
-        setTimeout(changePaginationTheme, 100);
+        // changePaginationTheme();
+        setTimeout(changePaginationTheme, 500);
     };
 };
 
@@ -26,13 +26,13 @@ function onTheme() {
     if (theme === "dark") {
         bodyTheme.classList.remove('body-theme');
         localStorage.setItem("ui-theme", "light");
-        changePaginationTheme();
+        // changePaginationTheme();
         setTimeout(changePaginationTheme, 100);
         return
     };
     bodyTheme.classList.add('body-theme');
     localStorage.setItem("ui-theme", "dark");
-    changePaginationTheme();
+    // changePaginationTheme();
     setTimeout(changePaginationTheme, 100);
 };
 

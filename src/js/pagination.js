@@ -1,6 +1,7 @@
 import Pagination from 'tui-pagination';
 import filmsAPIService from './api-service';
 import { trendingFilms, getGenreName, renderMovieCard, main, singleGenre } from './homepage-rendering';
+import {searchFilms} from './search';
 
 //--------------------------------------------------------------
 //Init Pagination
@@ -27,7 +28,7 @@ export const paginationOptions = {
                 '</a>',
         },
 };
-export var pagination = new Pagination('pagination', paginationOptions);
+export let pagination = new Pagination('pagination', paginationOptions);
     
 
 //Pagination first start with response from API and create total_pages
@@ -80,6 +81,31 @@ export function paginationChangePageShowTrend() {
 };
 //--------------------------------------------------------------
 
+export function paginationSearchFilms(res) {
+    console.log(res.data);
+    creatingTotalResultsPagination(res);
+    setTimeout(changePaginationTheme, 100);
+    console.log(pagination._options);
+
+};
+ 
+//--------------------------------------------------------------
+
+export function paginationChangePageSearchFilms() {
+    
+    pagination.on('afterMove', event => {
+        //Current pagination page go to trendingFilms.page
+        const currentPage = event.page;
+        trendingFilms.page = currentPage;
+        // console.log("trendingFilms.page", trendingFilms.page);
+    
+        //Cleaning main 
+        document.querySelector('.search-form').firstElementChild.value = '';
+        document.querySelector('.container__main').innerHTML = '';
+        searchFilms();
+    });
+};
+
 //--------------------------------------------------------------
 //Pagination change Theme day night
 export function changePaginationTheme() {
@@ -90,7 +116,7 @@ export function changePaginationTheme() {
         for (const variable of tuiElement.children) {
             variable.className += ' color-number';
         }
-        console.log(tuiElement.children);
+        // console.log(tuiElement.children);
 
         pagination.on('afterMove', event => {
             
@@ -114,8 +140,6 @@ export function changePaginationTheme() {
 
 //--------------------------------------------------------------
 
-//--------------------------------------------------------------
-
 // Возврат пагинации при клике на логотип/домашнюю страницу
 
 const logo = document.querySelector('.logo__list').addEventListener('click', onLogoClick);
@@ -128,3 +152,5 @@ function onLogoClick() {
 function onHomeClick() {
     document.getElementById('pagination').style.display = "block";
 }; 
+
+//--------------------------------------------------------------

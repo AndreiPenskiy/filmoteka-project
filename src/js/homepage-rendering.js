@@ -1,6 +1,6 @@
 import filmsAPIService from './api-service';
 import Pagination from 'tui-pagination';
-import { pagination, paginationPage, creatingTotalResultsPagination, paginationChangePageShowTrend} from './pagination';
+import { pagination, paginationPage, creatingTotalResultsPagination, paginationChangePageShowTrend, changePaginationTheme} from './pagination';
 export const trendingFilms = new filmsAPIService();
 
 const homepageLogo = document.querySelector('.logo__list');
@@ -26,6 +26,7 @@ export function showTrendMov(event) {
     //Pagination init and check
     trendingFilms.page = paginationPage;
     creatingTotalResultsPagination(res),
+    setTimeout(changePaginationTheme, 100);
     //Pagination End in this module
       
     res.data.results.forEach(movie => {
