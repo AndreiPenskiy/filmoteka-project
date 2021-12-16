@@ -4,13 +4,16 @@
 //   background-color: blueviolet;
 //   border: 1px solid black;
 // }
-
+.main {
+  // padding-bottom: 75px;
+}
 .container__main {
   // border: 1px solid tomato;
   height: 100%;
   display: grid;
   justify-content: center;
   padding-top: 20px;
+  
 
   @media screen and (min-width: 320px) {
     grid-column-gap: 20px;

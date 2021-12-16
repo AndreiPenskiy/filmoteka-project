@@ -1,19 +1,19 @@
-import { trendingFilms } from '../index';
 import debounce from 'lodash.debounce';
-import renderMovieCard from './homepage-rendering';
+import { trendingFilms } from './homepage-rendering';
+import nothingHereUrl from '../images/library/blank-cinema.jpg';
+const main = document.querySelector('.container__main');
 
 export const searchFilms = function (event) {
   event.preventDefault();
+  trendingFilms.currentPage = 1;
+  trendingFilms.allPages = 1;
+  document.querySelector('.container__main').innerHTML = ' ';
 
   trendingFilms.searchQuery = event.target.firstElementChild.value;
   if (event.target.firstElementChild.value === ' ') {
     onInvalidSearchQuery();
     return;
   }
-
-  trendingFilms.currentPage = 1;
-  trendingFilms.allPages = 1;
-  document.querySelector('.container__main').innerHTML = ' ';
 
   trendingFilms
     .getFilmsByQuery(event.target.firstElementChild.value)
@@ -25,23 +25,45 @@ export const searchFilms = function (event) {
       res.data.results.forEach(movie => {
         const { title, poster_path, id, vote_average, genre_ids, release_date } = movie;
 
-        const temp = [];
-        if (genre_ids.length !== 0) {
-          for (let i = 0; i < genre_ids.length && i < 2; i += 1) {
-            temp.push(...trendingFilms.allGenres.filter(genre => genre.id === genre_ids[i]));
-          }
+        try {
+          renderCardForSearch(movie);
+        } catch (error) {
+          // console.log('Only films with full info are shown');
         }
-        const genresByNames = temp.map(el => el.name).join(', ');
-
-        const movieEl = document.createElement('li');
-        movieEl.classList.add('card__item');
-
-        renderMovieCard(movieEl, id, poster_path, title, genresByNames, release_date, vote_average);
-        document.querySelector('.container__main').appendChild(movieEl);
+        return movie;
       });
     })
-    .catch(error => console.log('oooooooops ', error));
+    .catch(error => {
+      onInvalidSearchQuery();
+    });
 };
+
+function renderCardForSearch(res) {
+  let poster_url;
+  if (!res.poster_path) {
+    poster_url = `src='https://image.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg'`;
+  } else {
+    poster_url = `src="https://www.themoviedb.org/t/p/w500/${res.poster_path}"`;
+  }
+
+  let singleGenre = [];
+  for (let i = 0; i < 2; i += 1) {
+    singleGenre.push(localStorage.getItem(res.genre_ids[i]));
+  }
+  const genres = singleGenre.join(', ');
+
+  const movieEl = document.createElement('li');
+  movieEl.classList.add('card__item');
+  movieEl.innerHTML = `<a class="card__link" id = "${res.id}" href="#">
+                <img ${poster_url} alt ="${res.title}" class="card__poster">
+        
+            <h2 class="card__title">${res.title}</h2>
+            <p class="card__description">${genres} | ${res.release_date.slice(0, 4)}</p>
+            <p class="card__rating">${res.vote_average}</p>
+        
+                </a>`;
+  main.appendChild(movieEl);
+}
 
 const onInvalidSearchQuery = function () {
   const notification = `<p class="search-notification">
@@ -51,5 +73,10 @@ const onInvalidSearchQuery = function () {
   const removeNotification = debounce(() => {
     document.querySelector('.search-form').lastElementChild.remove();
   }, 2000);
+
+  document.querySelector(
+    '.container__main',
+  ).innerHTML = `<img src="${nothingHereUrl}" alt="blank cinema" width=320>`;
+
   removeNotification();
 };
