@@ -21,7 +21,7 @@ function signinUser() {
     const googleAuthProvider = new firebase.auth.GoogleAuthProvider;
     firebase.auth().signInWithPopup(googleAuthProvider)
         .then(function (data){
-          console.log(data)
+          //console.log(data)
           document.getElementById('signin').classList.add('signOut');
           document.getElementById('signout').classList.add('signIn');
           document.getElementById('googleUser').style.display = "block";
@@ -34,7 +34,7 @@ function signinUser() {
 
 function signoutUser(){
     firebase.auth().signOut().then(() => {
-        console.log("Sign - out successful.");
+        //console.log("Sign - out successful.");
         document.getElementById('signin').classList.remove('signOut');
       document.getElementById('signout').classList.remove('signIn');
       document.getElementById('googleUser').style.display = "none";

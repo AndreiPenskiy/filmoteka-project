@@ -170,6 +170,7 @@ const input = document.getElementById('input');
 
   eng.addEventListener('click', evt => {
 evt.preventDefault();
+
 i18n.changeLanguage('en');
 html.setAttribute('lang', 'en');
 console.log(language)
