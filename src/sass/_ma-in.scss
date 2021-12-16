@@ -4,15 +4,21 @@
 //   background-color: blueviolet;
 //   border: 1px solid black;
 // }
-.main {
-  // padding-bottom: 75px;
+.container__main-content {
+  @media screen and (min-width: 320px) {
+    padding-bottom: 40px;
+    padding-top: 20px;
+  }
+  @media screen and (min-width: 768px) {
+    padding-bottom: 50px;
+    padding-top: 60px;
+  }
 }
 .container__main {
-  // border: 1px solid tomato;
   height: 100%;
   display: grid;
   justify-content: center;
-  padding-top: 20px;
+  
   
 
   @media screen and (min-width: 320px) {
@@ -20,7 +26,6 @@
     grid-row-gap: 20px;
   }
   @media screen and (min-width: 768px) {
-    padding-top: 60px;
     grid-template-columns: repeat(2, auto);
     grid-column-gap: 30px;
     grid-row-gap: 30px;
