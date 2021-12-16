@@ -17,6 +17,7 @@ import './js/trailer';
 import './js/localstorage';
 import './js/pagination';
 import './js/render-lib';
+import './js/search';
 
 import { trendingFilms } from './js/homepage-rendering';
     
