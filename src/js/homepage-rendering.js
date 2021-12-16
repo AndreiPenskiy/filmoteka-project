@@ -38,13 +38,21 @@ export function showTrendMov(event) {
       getGenreName(genre_ids);
 
       // Делаем разметку страницы
-      renderMovieCard(id, poster_path, title, singleGenre, release_date, vote_average);
+      //renderMovieCard(id, poster_path, title, singleGenre, release_date, vote_average);
+      //document.querySelector('.spinner').style.display = "block";
+      setTimeout(() => {
+        renderMovieCard(id, poster_path, title, singleGenre, release_date, vote_average);
+  }, 150);
+      document.querySelector('.spinner').style.display = "none";
     })}
   );
 };
 
 //Pagination and rendering of total pages
 paginationChangePageShowTrend();
+/* setTimeout(() => {
+        paginationChangePageShowTrend();
+  }, 6000); */
 
 // Сохраняем жанры в Local Storage, достаем по id
 
