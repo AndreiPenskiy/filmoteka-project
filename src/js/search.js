@@ -1,4 +1,6 @@
 import debounce from 'lodash.debounce';
+import Pagination from 'tui-pagination';
+// import { pagination } from './pagination';
 import { trendingFilms } from './homepage-rendering';
 import nothingHereUrl from '../images/library/blank-cinema.jpg';
 const main = document.querySelector('.container__main');
@@ -8,6 +10,7 @@ export const searchFilms = function (event) {
   trendingFilms.currentPage = 1;
   trendingFilms.allPages = 1;
   document.querySelector('.container__main').innerHTML = ' ';
+
 
   trendingFilms.searchQuery = event.target.firstElementChild.value;
   if (event.target.firstElementChild.value === ' ') {
@@ -21,7 +24,9 @@ export const searchFilms = function (event) {
       if (res.data.total_results === 0) {
         trendingFilms.allPages = 0;
         return error;
-      }
+      };
+      console.log(res.data);
+      // pagination.reset(res.data.total_results);
       res.data.results.forEach(movie => {
         const { title, poster_path, id, vote_average, genre_ids, release_date } = movie;
 

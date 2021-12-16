@@ -83,18 +83,19 @@ export function paginationChangePageShowTrend() {
 //--------------------------------------------------------------
 //Pagination change Theme day night
 export function changePaginationTheme() {
+    
     const tuiElement = document.querySelector('.tui-pagination');
     if (document.querySelector('body').className === 'body-theme') {
         
         for (const variable of tuiElement.children) {
-            variable.className = variable.className + ' color-number';
+            variable.className += ' color-number';
         }
         console.log(tuiElement.children);
 
         pagination.on('afterMove', event => {
             
             for (const variable of tuiElement.children) {
-            variable.className = variable.className + ' color-number';
+            variable.className += ' color-number';
         }
         });
     } else { for (const variable of tuiElement.children) {
@@ -109,6 +110,8 @@ export function changePaginationTheme() {
         console.log(tuiElement.children);
     }
     };
+
+setTimeout(changePaginationTheme, 2000);
 //--------------------------------------------------------------
 
 //--------------------------------------------------------------
