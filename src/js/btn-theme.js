@@ -16,6 +16,7 @@ function saveTheme () {
         bodyTheme.classList.add('body-theme');
         checked.setAttribute('checked', true);
         changePaginationTheme();
+        setTimeout(changePaginationTheme, 100);
     };
 };
 
@@ -26,11 +27,13 @@ function onTheme() {
         bodyTheme.classList.remove('body-theme');
         localStorage.setItem("ui-theme", "light");
         changePaginationTheme();
+        setTimeout(changePaginationTheme, 100);
         return
     };
     bodyTheme.classList.add('body-theme');
     localStorage.setItem("ui-theme", "dark");
     changePaginationTheme();
+    setTimeout(changePaginationTheme, 100);
 };
 
 // function onTheme(e) {

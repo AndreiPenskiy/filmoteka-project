@@ -107,11 +107,11 @@ export function changePaginationTheme() {
             variable.classList.remove('color-number');
         }
         });
-        console.log(tuiElement.children);
+        // console.log(tuiElement.children);
     }
     };
+// setTimeout(changePaginationTheme, 2000);
 
-setTimeout(changePaginationTheme, 2000);
 //--------------------------------------------------------------
 
 //--------------------------------------------------------------

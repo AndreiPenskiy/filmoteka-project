@@ -1,9 +1,11 @@
 import debounce from 'lodash.debounce';
 import Pagination from 'tui-pagination';
-// import { pagination } from './pagination';
 import { trendingFilms } from './homepage-rendering';
 import nothingHereUrl from '../images/library/blank-cinema.jpg';
+import { pagination } from './pagination';
 const main = document.querySelector('.container__main');
+
+console.log(pagination);
 
 export const searchFilms = function (event) {
   event.preventDefault();
