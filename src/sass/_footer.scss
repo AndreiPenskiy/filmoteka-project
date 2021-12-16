@@ -3,6 +3,7 @@
   width: 100%;
   bottom: 0;
 }
+
 .footer-container {
   height: auto;
   padding-top: 28px;
@@ -62,5 +63,23 @@
   &:focus {
     text-shadow: #6b6f72 1px 0 10px;
     color: #ff6b08;
+  }
+}
+
+////////// Dark theme //////////
+
+body.body-theme {
+  .footer {
+    background-color: #545454;
+  }
+  .footer-text {
+    color: #f7f7f7;
+  }
+  .footer-team-link {
+    color: #f7f7f7;
+    &:hover,
+    &:focus {
+      color: #ff6b08;
+    }
   }
 }
