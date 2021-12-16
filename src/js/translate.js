@@ -170,7 +170,8 @@ const input = document.getElementById('input');
 
 eng.addEventListener('click', evt => {
 evt.preventDefault();
-i18n.changeLanguage('en');
+  i18n.changeLanguage('en');
+  
 });
 
 ukr.addEventListener('click', evt => {
@@ -187,7 +188,6 @@ i18n.changeLanguage('ru');
 pol.addEventListener('click', evt => {
 evt.preventDefault();
 i18n.changeLanguage('pl');
-
 });
 
 
