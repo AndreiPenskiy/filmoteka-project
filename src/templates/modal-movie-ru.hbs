@@ -30,32 +30,32 @@
     {{#if title}}
       <h2 class='modal-movie__title'>{{title}}</h2>
     {{else}}
-      <h2 class='modal-movie__title'>NO TITLE</h2>
+      <h2 class='modal-movie__title'>БЕЗ НАЗВАНИЯ</h2>
     {{/if}}
 
     <table class='modal-movie-info'>
       <tr>
-        <td class='modal-movie-info__title'>Vote / Votes</td>
+        <td class='modal-movie-info__title'>Рейтинг / Голосов</td>
         <td class='modal-movie-info__value'>
-          <span class='modal-movie-info__rate'>7.3</span>
+          <span class='modal-movie-info__rate'>{{vote_average}}</span>
           /
-          <span class='modal-movie-info__rate'>1260</span>
+          <span class='modal-movie-info__rate'>{{vote_count}}</span>
         </td>
       </tr>
       <tr>
-        <td class='modal-movie-info__title'>Popularity</td>
+        <td class='modal-movie-info__title'>Популярность</td>
         <td class='modal-movie-info__value'>{{popularity}}</td>
       </tr>
       <tr>
-        <td class='modal-movie-info__title'>Release</td>
+        <td class='modal-movie-info__title'>Премьера</td>
         <td class='modal-movie-info__value'>{{release_date}}</td>
       </tr>
       <tr>
-        <td class='modal-movie-info__title'>Original Title</td>
+        <td class='modal-movie-info__title'>Оригинальное Название</td>
         <td class='modal-movie-info__value'>{{original_title}}</td>
       </tr>
       <tr>
-        <td class='modal-movie-info__title'>Genre</td>
+        <td class='modal-movie-info__title'>Жанр</td>
         <td class='modal-movie-info__value'>
           {{#each genres}}
             {{this.name}}
@@ -65,19 +65,24 @@
     </table>
 
     <div class='modal-movie-about'>
-      <h3 class='modal-movie-about__title'>About</h3>
+      <h3 class='modal-movie-about__title'>Про фильм</h3>
       <p class='modal-movie-about__desc'>{{overview}}</p>
     </div>
 
     <div class='modal-movie-btn-wrapper' style='clear: both'>
       <button class='modal-movie-btn btn-to-watched' type='button' data-action='{{id}}'>
-        Add to watched
+        Добавить в просмотренные
       </button>
       <button class='modal-movie-btn btn-to-queue' type='button' data-action='{{id}}'>
-        Add to queue
+        Добавить в очередь
       </button>
     </div>
   </div>
 
-  <button class='modal-movie-close' type='button' aria-label='close modal'></button>
+  <button class='modal-movie-close' type='button' aria-label='close modal'>
+    <svg class='modal-movie-close__svg' width='30' height='30' viewBox='0 0 30 30'>
+      <path class='modal-movie-close__path' d='M8 8L22 22' stroke='black' stroke-width='2'></path>
+      <path class='modal-movie-close__path' d='M8 22L22 8' stroke='black' stroke-width='2'></path>
+    </svg>
+  </button>
 </div>
