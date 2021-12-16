@@ -91,8 +91,19 @@ body {
 }
 .lang {
   position: absolute;
+  width: 30px;
   right: 30px;
   bottom: 0;
+}
+
+.lang-site {
+  z-index: 2;
+  position: relative;
+  transform: scaleY(0.4); /* zwijamy cały element */
+    -webkit-transform: scaleY(0.4);
+    transform-origin: 50% 50%; /* ustawiamy punkt zwijania względem środka górnej krawędzi */
+    -webkit-transform-origin: 50% 50%;
+    transition: 200ms;
 }
 .lang-site__link,
 .lang-site__link--other {
@@ -105,8 +116,18 @@ body {
   padding-top: 4px;
   padding-bottom: 4px;
 }
+.lang-site__link--sticky {
+  position: absolute;
+  z-index: 1;
+  bottom: 33px;
+}
 .lang-site__link--other {
   visibility: hidden;
+}
+.lang-site:hover {
+  transform: scaleY(1); 
+  -webkit-transform: scaleY(1);
+  background-color: black;
 }
 .lang-site:hover .lang-site__link--other {
   visibility: visible;

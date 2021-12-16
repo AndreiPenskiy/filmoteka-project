@@ -1,4 +1,12 @@
+
+import filmsAPIService from './api-service';
+
+const api = new filmsAPIService();
+
+let language = '';
+
 const html = document.querySelector('html');
+
 
 function domI18n(options) {
   options = options || {};
@@ -40,7 +48,8 @@ function domI18n(options) {
       lang = defaultLanguage;
       html.setAttribute('lang', defaultLanguage.slice(0, 2));
     }
-
+    console.log(lang)
+    language = lang;
     return lang;
   }
 
@@ -130,11 +139,10 @@ function domI18n(options) {
 
   // triggers the translation of all elements with the root element
   function translateElements() {
-    var elems =
-      typeof selector == 'string' || selector instanceof String
-        ? rootElement.querySelectorAll(selector)
-        : selector;
-    for (var i = 0; i < elems.length; ++i) {
+    var elems = (typeof selector == 'string' || selector instanceof String) ?
+      rootElement.querySelectorAll(selector) :
+      selector;
+    for (let i = 0; i < elems.length; ++i) {
       translateElement(elems[i]);
     }
   }
@@ -159,26 +167,35 @@ const rus = document.getElementById('ru');
 const pol = document.getElementById('pl');
 const input = document.getElementById('input');
 
-eng.addEventListener('click', evt => {
-  evt.preventDefault();
-  i18n.changeLanguage('en');
-  html.setAttribute('lang', 'en');
+
+  eng.addEventListener('click', evt => {
+evt.preventDefault();
+i18n.changeLanguage('en');
+html.setAttribute('lang', 'en');
+console.log(language)
+api.language = `${language}`
 });
 
 ukr.addEventListener('click', evt => {
-  evt.preventDefault();
-  i18n.changeLanguage('uk');
-  html.setAttribute('lang', 'uk');
+evt.preventDefault();
+i18n.changeLanguage('uk');
+html.setAttribute('lang', 'uk');  
+api.language = `${language}`
 });
 
 rus.addEventListener('click', evt => {
-  evt.preventDefault();
-  i18n.changeLanguage('ru');
-  html.setAttribute('lang', 'ru');
+evt.preventDefault();
+i18n.changeLanguage('ru');
+html.setAttribute('lang', 'ru');
+api.language = `${language}`
 });
 
 pol.addEventListener('click', evt => {
-  evt.preventDefault();
-  i18n.changeLanguage('pl');
-  html.setAttribute('lang', 'pl');
+evt.preventDefault();
+i18n.changeLanguage('pl');
+ html.setAttribute('lang', 'pl'); 
+api.language = `${language}`
 });
+
+export {language}
+
