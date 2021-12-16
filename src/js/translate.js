@@ -48,7 +48,7 @@ function domI18n(options) {
       lang = defaultLanguage;
       html.setAttribute('lang', defaultLanguage.slice(0, 2));
     }
-    console.log(lang)
+    //console.log(lang)
     language = lang;
     return lang;
   }
@@ -173,7 +173,7 @@ evt.preventDefault();
 
 i18n.changeLanguage('en');
 html.setAttribute('lang', 'en');
-console.log(language)
+//console.log(language)
 api.language = `${language}`
 });
 

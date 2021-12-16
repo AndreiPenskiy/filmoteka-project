@@ -82,10 +82,10 @@ export function paginationChangePageShowTrend() {
 //--------------------------------------------------------------
 
 export function paginationSearchFilms(res) {
-    console.log(res.data);
+    //console.log(res.data);
     creatingTotalResultsPagination(res);
     setTimeout(changePaginationTheme, 100);
-    console.log(pagination._options);
+    //console.log(pagination._options);
 
 };
  
