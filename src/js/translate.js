@@ -1,5 +1,6 @@
+const html = document.querySelector('html');
+
 function domI18n(options) {
-  
   options = options || {};
 
   const rootElement = options.rootElement || window.document;
@@ -14,20 +15,18 @@ function domI18n(options) {
   let currentLanguage = getLanguage(options.currentLanguage);
 
   function getLanguage(lang) {
-
     // If no current language was provided, uses default browser language
     if (!lang) {
-      lang = window.navigator.languages ?
-        window.navigator.languages[0] :
-        (window.navigator.language || window.navigator.userLanguage);
+      lang = window.navigator.languages
+        ? window.navigator.languages[0]
+        : window.navigator.language || window.navigator.userLanguage;
+      html.setAttribute('lang', window.navigator.languages.slice(0, 2));
     }
 
     // If language isn't on languages arr, try using a less specific ref
     if (languages.indexOf(lang) === -1) {
       if (enableLog) {
-        console.warn(
-          lang + ' is not available on the list of languages provided'
-        );
+        console.warn(lang + ' is not available on the list of languages provided');
       }
       lang = lang.indexOf('-') ? lang.split('-')[0] : lang;
     }
@@ -36,11 +35,10 @@ function domI18n(options) {
     // languages list, switchs to default language instead
     if (languages.indexOf(lang) === -1) {
       if (enableLog) {
-        console.error(
-          lang + ' is not compatible with any language provided'
-        );
+        console.error(lang + ' is not compatible with any language provided');
       }
       lang = defaultLanguage;
+      html.setAttribute('lang', defaultLanguage.slice(0, 2));
     }
 
     return lang;
@@ -57,32 +55,25 @@ function domI18n(options) {
 
   function hasCachedVersion(elem) {
     const id = elem.getAttribute('data-dom-i18n-id');
-    return id &&
-      translatableCache &&
-      translatableCache[id];
+    return id && translatableCache && translatableCache[id];
   }
 
   function setCacheData(elem, content) {
-    const elemId = 'i18n' + Date.now() + (Math.random() * 1000);
+    const elemId = 'i18n' + Date.now() + Math.random() * 1000;
     elem.setAttribute('data-dom-i18n-id', elemId);
     translatableCache[elemId] = content;
   }
 
   function getCachedData(elem) {
-    return translatableCache &&
-      translatableCache[
-        elem.getAttribute('data-dom-i18n-id')
-      ];
+    return translatableCache && translatableCache[elem.getAttribute('data-dom-i18n-id')];
   }
 
   function getLanguageValues(elem, prop) {
-
     let translations = {};
     const hasChildren = elem.firstElementChild;
     const strings = !hasChildren && elem[prop].split(separator);
 
     languages.forEach(function (lang, index) {
-
       var child;
 
       if (hasChildren) {
@@ -112,7 +103,7 @@ function domI18n(options) {
       langObjs = getCachedData(elem);
     } else {
       langObjs = getLanguageValues(elem, prop);
-      if(!noCache) {
+      if (!noCache) {
         setCacheData(elem, langObjs);
       }
     }
@@ -139,9 +130,10 @@ function domI18n(options) {
 
   // triggers the translation of all elements with the root element
   function translateElements() {
-    var elems = (typeof selector == 'string' || selector instanceof String) ?
-      rootElement.querySelectorAll(selector) :
-      selector;
+    var elems =
+      typeof selector == 'string' || selector instanceof String
+        ? rootElement.querySelectorAll(selector)
+        : selector;
     for (var i = 0; i < elems.length; ++i) {
       translateElement(elems[i]);
     }
@@ -151,14 +143,14 @@ function domI18n(options) {
 
   return {
     changeLanguage: changeLanguage,
-    clearCachedElements: clearCachedElements
+    clearCachedElements: clearCachedElements,
   };
-};
+}
 const i18n = domI18n({
-selector: '[data-translatable]',
-separator: ' // ',
-languages: ['en', 'uk', 'ru', 'pl'],
-defaultLanguage: 'en',
+  selector: '[data-translatable]',
+  separator: ' // ',
+  languages: ['en', 'uk', 'ru', 'pl'],
+  defaultLanguage: 'en',
 });
 
 const eng = document.getElementById('en');
@@ -167,27 +159,26 @@ const rus = document.getElementById('ru');
 const pol = document.getElementById('pl');
 const input = document.getElementById('input');
 
-
 eng.addEventListener('click', evt => {
-evt.preventDefault();
-i18n.changeLanguage('en');
+  evt.preventDefault();
+  i18n.changeLanguage('en');
+  html.setAttribute('lang', 'en');
 });
 
 ukr.addEventListener('click', evt => {
-evt.preventDefault();
-i18n.changeLanguage('uk');
+  evt.preventDefault();
+  i18n.changeLanguage('uk');
+  html.setAttribute('lang', 'uk');
 });
 
 rus.addEventListener('click', evt => {
-evt.preventDefault();
-i18n.changeLanguage('ru');
-
+  evt.preventDefault();
+  i18n.changeLanguage('ru');
+  html.setAttribute('lang', 'ru');
 });
 
 pol.addEventListener('click', evt => {
-evt.preventDefault();
-i18n.changeLanguage('pl');
-
+  evt.preventDefault();
+  i18n.changeLanguage('pl');
+  html.setAttribute('lang', 'pl');
 });
-
-
