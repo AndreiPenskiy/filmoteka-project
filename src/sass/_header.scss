@@ -6,16 +6,17 @@
 *,
 *:before,
 *:after {
-  box-sizing: border-box;
+  box-sizing: border-b;
 }
-:focus,
+/* :focus,
 :active {
   outline: none;
 }
 a:focus,
 a:active {
   outline: none;
-}
+} */
+
 nav,
 footer,
 header,

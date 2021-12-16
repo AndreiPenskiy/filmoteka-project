@@ -35,6 +35,7 @@ export const searchFilms = function (event) {
 
         try {
           renderCardForSearch(movie);
+          document.getElementById('pagination').style.display = "block";
         } catch (error) {
           // console.log('Only films with full info are shown');
         }
@@ -85,6 +86,8 @@ const onInvalidSearchQuery = function () {
   document.querySelector(
     '.container__main',
   ).innerHTML = `<img src="${nothingHereUrl}" alt="blank cinema" width=320>`;
+
+  document.getElementById('pagination').style.display = "none";
 
   removeNotification();
 };
