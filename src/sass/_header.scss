@@ -100,10 +100,10 @@ body {
   z-index: 2;
   position: relative;
   transform: scaleY(0.4); /* zwijamy cały element */
-    -webkit-transform: scaleY(0.4);
-    transform-origin: 50% 50%; /* ustawiamy punkt zwijania względem środka górnej krawędzi */
-    -webkit-transform-origin: 50% 50%;
-    transition: 200ms;
+  -webkit-transform: scaleY(0.4);
+  transform-origin: 50% 50%; /* ustawiamy punkt zwijania względem środka górnej krawędzi */
+  -webkit-transform-origin: 50% 50%;
+  transition: 200ms;
 }
 .lang-site__link,
 .lang-site__link--other {
@@ -125,7 +125,7 @@ body {
   visibility: hidden;
 }
 .lang-site:hover {
-  transform: scaleY(1); 
+  transform: scaleY(1);
   -webkit-transform: scaleY(1);
   background-color: black;
 }
@@ -140,8 +140,8 @@ body {
 .header {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(../images/header/header-mob@1.jpg);
-    background-repeat: no-repeat;
-    background-color: black;
+  background-repeat: no-repeat;
+  background-color: black;
   // background-color: #2a2a2a;
   // background-size: cover;
   // background-size: auto 230px;
@@ -166,7 +166,6 @@ body {
     position: relative;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header__my-library/my-lib-header-mob.jpg);
-   
   }
 }
 // dpr2 и 280px+
@@ -184,7 +183,6 @@ body {
   }
 }
 
-
 .header__wrapper {
   display: flex;
   justify-content: space-between;
@@ -195,7 +193,7 @@ body {
   margin-bottom: 0;
   padding-left: 0;
 }
-.picture{
+.picture {
   width: 100%;
 }
 .logo__icon {
@@ -221,9 +219,12 @@ body {
 .navigation__list {
   display: flex;
   // padding-top: 57.4px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   padding-left: 0;
   align-items: center;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+  }
 }
 .navigation__item:not(:last-child) {
   margin-right: 39px;
@@ -311,7 +312,7 @@ body {
     .header {
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/header-tablet@2x.jpg);
-        // background-position: top;
+      // background-position: top;
 
       &__my-library {
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
@@ -343,9 +344,6 @@ body {
     padding-left: 0;
     align-items: center;
   }
-  
-
-  
 }
 //DESKTOP
 @media screen and (min-width: 1024px) {
@@ -356,10 +354,9 @@ body {
     // width: 1024px;
 
     &__my-library {
-
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header__my-library/my-lib-header-desktop.jpg);
-        // background-position: top;
+      // background-position: top;
     }
   }
   .logotext__link {
@@ -381,12 +378,12 @@ body {
     .header {
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/header-desktop@2x.jpg);
-        // background-position: top;
+      // background-position: top;
 
       &__my-library {
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
           url(../images/header__my-library/my-lib-header-desktop@2x.jpg);
-          // background-position: top;
+        // background-position: top;
       }
     }
   }
@@ -409,10 +406,25 @@ body {
 }
 
 .user-img {
+  @media screen and (max-width: 767px) {
+    margin-left: 0px;
+    margin-bottom: 4px;
+  }
   width: 50px;
   height: 50px;
   border-radius: 100%;
-  margin-left: 10px;
+  @media screen and (min-width: 768px) {
+    margin-left: 10px;
+  }
+}
+
+#googleUser {
+  @media screen and (max-width: 767px) {
+    margin-left: 0px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-left: 10px;
+  }
 }
 
 .navigation__button.signOut {
@@ -424,9 +436,12 @@ body {
 }
 
 .navigation__item.sign-in {
-  display: flex;
-}
-
-#googleUser {
-  margin-left: 10px;
+  @media screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: unset;
+  }
 }
