@@ -1,6 +1,7 @@
 import Pagination from 'tui-pagination';
 import filmsAPIService from './api-service';
 import { trendingFilms, getGenreName, renderMovieCard, main, singleGenre } from './homepage-rendering';
+import {searchFilms} from './search';
 
 //--------------------------------------------------------------
 //Init Pagination
@@ -27,7 +28,7 @@ export const paginationOptions = {
                 '</a>',
         },
 };
-export var pagination = new Pagination('pagination', paginationOptions);
+export let pagination = new Pagination('pagination', paginationOptions);
     
 
 //Pagination first start with response from API and create total_pages
@@ -80,21 +81,47 @@ export function paginationChangePageShowTrend() {
 };
 //--------------------------------------------------------------
 
+export function paginationSearchFilms(res) {
+    console.log(res.data);
+    creatingTotalResultsPagination(res);
+    setTimeout(changePaginationTheme, 100);
+    console.log(pagination._options);
+
+};
+ 
+//--------------------------------------------------------------
+
+export function paginationChangePageSearchFilms() {
+    
+    pagination.on('afterMove', event => {
+        //Current pagination page go to trendingFilms.page
+        const currentPage = event.page;
+        trendingFilms.page = currentPage;
+        // console.log("trendingFilms.page", trendingFilms.page);
+    
+        //Cleaning main 
+        document.querySelector('.search-form').firstElementChild.value = '';
+        document.querySelector('.container__main').innerHTML = '';
+        searchFilms();
+    });
+};
+
 //--------------------------------------------------------------
 //Pagination change Theme day night
 export function changePaginationTheme() {
+    
     const tuiElement = document.querySelector('.tui-pagination');
     if (document.querySelector('body').className === 'body-theme') {
         
         for (const variable of tuiElement.children) {
-            variable.className = variable.className + ' color-number';
+            variable.className += ' color-number';
         }
         //console.log(tuiElement.children);
 
         pagination.on('afterMove', event => {
             
             for (const variable of tuiElement.children) {
-            variable.className = variable.className + ' color-number';
+            variable.className += ' color-number';
         }
         });
     } else { for (const variable of tuiElement.children) {
@@ -109,16 +136,8 @@ export function changePaginationTheme() {
         //console.log(tuiElement.children);
     }
     };
-//--------------------------------------------------------------
-// changePaginationTheme();
-//--------------------------------------------------------------
-//FetchImages template
-//  export function fetchImages(page) {
-  
-//         return trendingFilms.getTrendingFilms(page)
-//             .then(res => ({ page: res.data.page, total_pages: res.data.total_pages, results: res.data.results, total_results: res.data.total_results }))
-    
-//     };
+// setTimeout(changePaginationTheme, 2000);
+
 //--------------------------------------------------------------
 
 // Возврат пагинации при клике на логотип/домашнюю страницу
@@ -133,3 +152,5 @@ function onLogoClick() {
 function onHomeClick() {
     document.getElementById('pagination').style.display = "block";
 }; 
+
+//--------------------------------------------------------------

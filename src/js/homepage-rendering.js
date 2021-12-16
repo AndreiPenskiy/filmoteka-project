@@ -1,6 +1,7 @@
 import filmsAPIService from './api-service';
 import Pagination from 'tui-pagination';
-import { pagination, paginationPage, creatingTotalResultsPagination, paginationChangePageShowTrend} from './pagination';
+import { pagination, paginationPage, creatingTotalResultsPagination, paginationChangePageShowTrend, changePaginationTheme} from './pagination';
+import { language } from './translate';
 export const trendingFilms = new filmsAPIService();
 
 const homepageLogo = document.querySelector('.logo__list');
@@ -17,8 +18,8 @@ window.addEventListener('load', showTrendMov);
 export function showTrendMov(event) {
   event.preventDefault();
   document.querySelector('.search-form').firstElementChild.value = '';
+  trendingFilms.currentPage = 1;
   main.innerHTML = '';
-  
   // console.log('щас буду рендерить фильмы');
 
   trendingFilms.getTrendingFilms().then(res => {
@@ -26,6 +27,7 @@ export function showTrendMov(event) {
     //Pagination init and check
     trendingFilms.page = paginationPage;
     creatingTotalResultsPagination(res),
+    setTimeout(changePaginationTheme, 100);
     //Pagination End in this module
       
     res.data.results.forEach(movie => {

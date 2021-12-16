@@ -1,12 +1,18 @@
 import debounce from 'lodash.debounce';
+import Pagination from 'tui-pagination';
 import { trendingFilms } from './homepage-rendering';
 import nothingHereUrl from '../images/library/blank-cinema.jpg';
+import { pagination, paginationSearchFilms } from './pagination';
 const main = document.querySelector('.container__main');
+
+console.log(pagination);
+
 export const searchFilms = function (event) {
   event.preventDefault();
   trendingFilms.currentPage = 1;
   trendingFilms.allPages = 1;
   document.querySelector('.container__main').innerHTML = ' ';
+
 
   trendingFilms.searchQuery = event.target.firstElementChild.value;
   if (event.target.firstElementChild.value === ' ') {
@@ -20,7 +26,10 @@ export const searchFilms = function (event) {
       if (res.data.total_results === 0) {
         trendingFilms.allPages = 0;
         return error;
-      }
+      };
+      console.log(res.data);
+      paginationSearchFilms(res);
+      // pagination.reset(res.data.total_results);
       res.data.results.forEach(movie => {
         const { title, poster_path, id, vote_average, genre_ids, release_date } = movie;
 
@@ -75,7 +84,8 @@ const onInvalidSearchQuery = function () {
 
   document.querySelector(
     '.container__main',
-  ).innerHTML = `<img src="${nothingHereUrl}" alt="blank cinema">`;
+  ).innerHTML = `<img src="${nothingHereUrl}" alt="blank cinema" width=320>`;
+
   removeNotification();
-  document.querySelector('.container__main').innerHTML = ' ';
 };
+
