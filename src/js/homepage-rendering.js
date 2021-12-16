@@ -1,6 +1,7 @@
 import filmsAPIService from './api-service';
 import Pagination from 'tui-pagination';
 import { pagination, paginationPage, creatingTotalResultsPagination, paginationChangePageShowTrend, changePaginationTheme} from './pagination';
+import { language } from './translate';
 export const trendingFilms = new filmsAPIService();
 
 const homepageLogo = document.querySelector('.logo__list');

@@ -319,3 +319,11 @@
     display: none;
   }
 }
+
+////////// Dark theme //////////
+
+body.body-theme {
+  .tui-pagination .tui-page-btn {
+    color: #fff;
+  }
+}

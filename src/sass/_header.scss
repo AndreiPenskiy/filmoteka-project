@@ -91,8 +91,19 @@ body {
 }
 .lang {
   position: absolute;
+  width: 30px;
   right: 30px;
   bottom: 0;
+}
+
+.lang-site {
+  z-index: 2;
+  position: relative;
+  transform: scaleY(0.4); /* zwijamy cały element */
+    -webkit-transform: scaleY(0.4);
+    transform-origin: 50% 50%; /* ustawiamy punkt zwijania względem środka górnej krawędzi */
+    -webkit-transform-origin: 50% 50%;
+    transition: 200ms;
 }
 .lang-site__link,
 .lang-site__link--other {
@@ -105,8 +116,18 @@ body {
   padding-top: 4px;
   padding-bottom: 4px;
 }
+.lang-site__link--sticky {
+  position: absolute;
+  z-index: 1;
+  bottom: 33px;
+}
 .lang-site__link--other {
   visibility: hidden;
+}
+.lang-site:hover {
+  transform: scaleY(1); 
+  -webkit-transform: scaleY(1);
+  background-color: black;
 }
 .lang-site:hover .lang-site__link--other {
   visibility: visible;
@@ -271,14 +292,13 @@ body {
 // tablet
 @media screen and (min-width: 768px) {
   .header {
-    
+    padding-top: 41px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header/header-tablet@1.jpg);
-
-    padding-top: 48.4px;
     // width: 768px;
 
     &__my-library {
+      padding-top: 41px;
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header__my-library/my-lib-header-tablet.jpg);
     }
@@ -319,7 +339,7 @@ body {
   }
   .navigation__list {
     padding-top: 9px;
-    margin-bottom: 40px;
+    margin-bottom: 41px;
     padding-left: 0;
     align-items: center;
   }
@@ -336,6 +356,7 @@ body {
     // width: 1024px;
 
     &__my-library {
+
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header__my-library/my-lib-header-desktop.jpg);
         // background-position: top;
