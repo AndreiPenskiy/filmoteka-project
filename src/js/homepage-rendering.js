@@ -20,7 +20,6 @@ export function showTrendMov(event) {
   document.querySelector('.search-form').firstElementChild.value = '';
   trendingFilms.currentPage = 1;
   main.innerHTML = '';
-  // console.log('щас буду рендерить фильмы');
 
   trendingFilms.getTrendingFilms().then(res => {
     //Pagination creating total pages with rendering Main Page
@@ -77,9 +76,11 @@ export const renderMovieCard = function (
   release_date,
   vote_average,
 ) {
+
+
   const movieEl = document.createElement('li');
   movieEl.classList.add('card__item');
-
+  
   movieEl.innerHTML = `<a class="card__link" id = "${id}" href="#">
         <img src="${IMG_URL + poster_path}" alt ="${title}" class="card__poster">
         
@@ -88,7 +89,7 @@ export const renderMovieCard = function (
     0,
     4,
   )}</p>
-            <p class="card__rating">${vote_average}</p>
+            <p class="card__rating">${vote_average.toFixed(2)}</p>
         
         </a>`;
   main.appendChild(movieEl);
