@@ -104,7 +104,7 @@ function renderCardForLib(res, id) {
         
             <h2 class="card__title">${res.title}</h2>
             <p class="card__description">${genres} | ${res.release_date.slice(0, 4)}</p>
-            <p class="card__rating">${res.vote_average}</p>
+            <p class="card__rating">${res.vote_average.splice(0,3)}</p>
         
                 </a>`;
   main.appendChild(movieEl);
